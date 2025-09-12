@@ -1,0 +1,9 @@
+C:/Users/benso/source/repos/Bolt/CMakeFiles/INSTALL.dir
+C:/Users/benso/source/repos/Bolt/CMakeFiles/ALL_BUILD.dir
+C:/Users/benso/source/repos/Bolt/CMakeFiles/ZERO_CHECK.dir
+C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir
+C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/INSTALL.dir
+C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/ALL_BUILD.dir
+C:/Users/benso/source/repos/Bolt/BoltGame/CMakeFiles/BoltGame.dir
+C:/Users/benso/source/repos/Bolt/BoltGame/CMakeFiles/INSTALL.dir
+C:/Users/benso/source/repos/Bolt/BoltGame/CMakeFiles/ALL_BUILD.dir

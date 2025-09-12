@@ -1,0 +1,593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CEB73A53-CF81-3146-BFCE-ED1F282A104C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>BoltCore</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">BoltCore.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">BoltCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BoltCore.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BoltCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">BoltCore.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">BoltCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">BoltCore.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">BoltCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;BX_CONFIG_DEBUG=1;BGFX_CONFIG_DEBUG=1;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;BX_CONFIG_DEBUG=1;BGFX_CONFIG_DEBUG=1;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:__cplusplus</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <UseStandardPreprocessor>true</UseStandardPreprocessor>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BX_CONFIG_DEBUG=0;BGFX_CONFIG_DEBUG=0;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\benso\source\repos\Bolt\BoltCore\include;C:\Users\benso\source\repos\Bolt\Vendor\External\Include;C:\Users\benso\source\repos\Bolt\BoltCore\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/benso/source/repos/Bolt/BoltCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/benso/source/repos/Bolt -BC:/Users/benso/source/repos/Bolt --check-stamp-file C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/benso/source/repos/Bolt/BoltCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/benso/source/repos/Bolt -BC:/Users/benso/source/repos/Bolt --check-stamp-file C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/benso/source/repos/Bolt/BoltCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/benso/source/repos/Bolt -BC:/Users/benso/source/repos/Bolt --check-stamp-file C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/benso/source/repos/Bolt/BoltCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/benso/source/repos/Bolt -BC:/Users/benso/source/repos/Bolt --check-stamp-file C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\cmake_pch.cxx">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/Debug/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/Release/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/MinSizeRel/cmake_pch.pch</PrecompiledHeaderOutputFile>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/BoltCore.dir/RelWithDebInfo/cmake_pch.pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\Audio.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\AudioManager.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\AudioSource.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\BoxCollider2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Collider2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\ParticleSystem2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Rigidbody2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Transform2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Application.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\GLFWWindow.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Input.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\SokolWindow.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Time.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Debug\Logger.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Camera2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\GizmoRenderer.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Gizmos.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\QuadMesh.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\RenderContext.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\RenderResources.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Renderer2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Shader.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Texture2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\TextureManager.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Math\VectorMath.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\Box2DWorld.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\Physics2D.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\PhysicsSystem.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\PhysicsUtility.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\Entity.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\Scene.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\SceneDefinition.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\SceneManager.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\btpch.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Debug/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/Release/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/MinSizeRel/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/benso/source/repos/Bolt/BoltCore/CMakeFiles/BoltCore.dir/RelWithDebInfo/cmake_pch.hxx;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\Debug\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\Release\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\MinSizeRel\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\RelWithDebInfo\cmake_pch.hxx" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\Audio.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioHandle.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioManager.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioSource.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Bolt.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\AABB.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Color.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Mat2.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Quaternion.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Vec2.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Vec4.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Viewport.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\BoxCollider2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Collider2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\ComponentUtils.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\ParticleSystem2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Rigidbody2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\SpriteRenderer.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Tags.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Transform2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Application.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\GLFWWindow.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Input.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\KeyCodes.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\SokolWindow.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Time.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Debug\Logger.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\EntryPoint.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Camera2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\GizmoRenderer.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Gizmos.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\QuadMesh.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\RenderContext.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\RenderResources.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Renderer2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Shader.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Texture2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\TextureHandle.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\TextureManager.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Common.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Math.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Trigonometry.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\VectorMath.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Box2DWorld.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Collision2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\CollisionDispatcher.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Physics2D.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsSystem.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsTypes.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsUtility.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\Entity.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\EntityHandle.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\ISystem.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\Scene.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\SceneDefinition.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\SceneManager.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Async.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Random.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Serializer.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Timer.hpp" />
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\btpch.hpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\benso\source\repos\Bolt\ZERO_CHECK.vcxproj">
+      <Project>{CA09240D-654C-3EEA-8B19-F2FD48CE1562}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

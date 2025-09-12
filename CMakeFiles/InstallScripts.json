@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/benso/source/repos/Bolt/cmake_install.cmake",
+		"C:/Users/benso/source/repos/Bolt/BoltCore/cmake_install.cmake",
+		"C:/Users/benso/source/repos/Bolt/BoltGame/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

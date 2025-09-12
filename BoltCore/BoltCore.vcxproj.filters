@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\Audio.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\AudioManager.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Audio\AudioSource.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\BoxCollider2D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Collider2D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\ParticleSystem2D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Rigidbody2D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Components\Transform2D.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\GLFWWindow.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Input.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\SokolWindow.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Core\Time.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Debug\Logger.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Camera2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\GizmoRenderer.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Gizmos.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\QuadMesh.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\RenderContext.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\RenderResources.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Renderer2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Shader.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\Texture2D.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Graphics\TextureManager.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Math\VectorMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\Box2DWorld.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\Physics2D.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\PhysicsSystem.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Physics\PhysicsUtility.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\Entity.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\SceneDefinition.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\Scene\SceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\benso\source\repos\Bolt\BoltCore\src\btpch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\Debug\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\Release\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\MinSizeRel\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeFiles\BoltCore.dir\RelWithDebInfo\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\Audio.hpp">
+      <Filter>Bolt\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioHandle.hpp">
+      <Filter>Bolt\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioManager.hpp">
+      <Filter>Bolt\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Audio\AudioSource.hpp">
+      <Filter>Bolt\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Bolt.hpp">
+      <Filter>Bolt</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\AABB.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Color.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Mat2.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Quaternion.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Vec2.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Vec4.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Collections\Viewport.hpp">
+      <Filter>Bolt\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\BoxCollider2D.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Collider2D.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\ComponentUtils.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\ParticleSystem2D.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Rigidbody2D.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\SpriteRenderer.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Tags.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Components\Transform2D.hpp">
+      <Filter>Bolt\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Application.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\GLFWWindow.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Input.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\KeyCodes.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\SokolWindow.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Core\Time.hpp">
+      <Filter>Bolt\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Debug\Logger.hpp">
+      <Filter>Bolt\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\EntryPoint.hpp">
+      <Filter>Bolt</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Camera2D.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\GizmoRenderer.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Gizmos.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\QuadMesh.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\RenderContext.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\RenderResources.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Renderer2D.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Shader.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\Texture2D.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\TextureHandle.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Graphics\TextureManager.hpp">
+      <Filter>Bolt\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Common.hpp">
+      <Filter>Bolt\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Math.hpp">
+      <Filter>Bolt\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\Trigonometry.hpp">
+      <Filter>Bolt\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Math\VectorMath.hpp">
+      <Filter>Bolt\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Box2DWorld.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Collision2D.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\CollisionDispatcher.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\Physics2D.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsSystem.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsTypes.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Physics\PhysicsUtility.hpp">
+      <Filter>Bolt\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\Entity.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\EntityHandle.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\ISystem.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\Scene.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\SceneDefinition.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Scene\SceneManager.hpp">
+      <Filter>Bolt\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Async.hpp">
+      <Filter>Bolt\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Random.hpp">
+      <Filter>Bolt\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Serializer.hpp">
+      <Filter>Bolt\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\Utils\Timer.hpp">
+      <Filter>Bolt\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\benso\source\repos\Bolt\BoltCore\include\Bolt\btpch.hpp">
+      <Filter>Bolt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\benso\source\repos\Bolt\BoltCore\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{144BD073-EA7A-3A8A-8E29-BDC4A2EECC32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt">
+      <UniqueIdentifier>{E907994D-E498-3562-A83A-88029AF8C41D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Audio">
+      <UniqueIdentifier>{FD7C3E7C-FABA-3923-B21A-FD1A7DA31322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Collections">
+      <UniqueIdentifier>{C4294A3F-DFEA-3CDF-BCC1-3D42927122F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Components">
+      <UniqueIdentifier>{2072F917-0D70-3D66-995A-7DAF67463A5B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Core">
+      <UniqueIdentifier>{FD83EBB3-D364-3909-BFB8-4C1362DE7938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Debug">
+      <UniqueIdentifier>{93071076-AAB1-3F2F-A533-5FE9A4F23787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Graphics">
+      <UniqueIdentifier>{E1261EA4-3432-3497-9071-67177FD61AA6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Math">
+      <UniqueIdentifier>{9D258A91-E08C-3A08-A99D-393C7B4C005A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Physics">
+      <UniqueIdentifier>{7FC88B5D-B30B-3BCE-968E-006E1210D052}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Scene">
+      <UniqueIdentifier>{563EEB97-5DB9-3FCB-98D8-971368C12544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bolt\Utils">
+      <UniqueIdentifier>{3FA81CDD-60CC-3A33-A123-A26F6F67A17E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{D65E0DDC-864B-32AB-8A5D-9DBE60CB8CEE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{16600AE2-FCE2-358C-9091-3BFE4450C8C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{5880C98D-8E58-301F-BC7C-8D7A0896D4EB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{9A33BDF0-FE4F-3483-9C19-BCD5D37F4F24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{1C39C02F-4F19-3564-B899-44DD4F22F79D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{6E5CDF7A-FAD0-3881-B3D8-ED6267F0C751}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{95CFF790-68EB-3CCC-8D33-1BA580669723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{2C34CEDD-75E9-3720-A65F-51713189ABBB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C2F586F2-C91C-3EC4-A618-77781A9EC394}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\benso\source\repos\Bolt\CMakeFiles\0d07dc917c40401a8046e9adb73704da\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{094C8189-466D-32FA-9A4F-DB7C34AAB429}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
