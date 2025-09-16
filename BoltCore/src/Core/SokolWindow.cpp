@@ -116,20 +116,23 @@ namespace Bolt {
 
     std::vector<uint8_t> SokolWindow::LoadFile(const char* path) {
         std::ifstream file(path, std::ios::binary | std::ios::ate);
+
         if (!file) return {};
+
         std::streamsize size = file.tellg();
         file.seekg(0, std::ios::beg);
+
         if (size <= 0) return {};
+
         std::vector<uint8_t> data(static_cast<std::size_t>(size));
         file.read(reinterpret_cast<char*>(data.data()), size);
         return data;
     }
     void SokolWindow::SetWindowIcon(const char* filepath) {
-        // Datei laden
         auto fileData = LoadFile(filepath);
         if (fileData.empty()) return;
 
-        // Image mit bimg dekodieren (interner Allocator)
+
         static bx::DefaultAllocator allocator;
         bimg::ImageContainer* image = bimg::imageParse(
             &allocator,
@@ -138,23 +141,23 @@ namespace Bolt {
         );
         if (!image) return;
 
-        // Icon-Descriptor initialisieren
+
         sapp_icon_desc iconDesc;
         iconDesc.sokol_default = false;
-        // Alle Bild-Slots säubern
+
         for (int i = 0; i < SAPP_MAX_ICONIMAGES; ++i) {
             iconDesc.images[i].width = 0;
             iconDesc.images[i].height = 0;
             iconDesc.images[i].pixels.ptr = nullptr;
             iconDesc.images[i].pixels.size = 0;
         }
-        // Ersten Slot mit RGBA-Pixeln füllen
+
         iconDesc.images[0].width = static_cast<int>(image->m_width);
         iconDesc.images[0].height = static_cast<int>(image->m_height);
         iconDesc.images[0].pixels.ptr = image->m_data;
         iconDesc.images[0].pixels.size = static_cast<size_t>(image->m_width) * static_cast<size_t>(image->m_height) * 4;
 
-        // Icon setzen (portable)
+
         sapp_set_icon(&iconDesc);
         bimg::imageFree(image);
     }

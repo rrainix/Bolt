@@ -74,7 +74,7 @@ namespace Bolt {
 		AudioManager(const AudioManager&) = delete;
 		AudioManager& operator=(const AudioManager&) = delete;
 
-		// Static member variables
+
 		static ma_engine s_Engine;
 		static bool s_IsInitialized;
 

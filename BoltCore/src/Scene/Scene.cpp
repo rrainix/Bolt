@@ -15,8 +15,9 @@
 #include "Bolt/Graphics/Camera2D.hpp"
 
 namespace Bolt {
+	
 	// Note: Creates an entity with a Transform2D component
-	Entity Scene::CreateEntity() {
+	Entity Scene::CreateEntity()  {
 		auto entityHandle = CreateEntityHandle();
 		AddComponent<Transform2D>(entityHandle);
 		return Entity(entityHandle, m_Registry);

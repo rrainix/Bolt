@@ -36,7 +36,7 @@ namespace Bolt {
         return std::tan(angle);
     }
 
-    // Inverse trigonometrische Funktionen
+
     template<typename T>
     inline T Asin(T value) {
         return std::asin(value);
@@ -57,7 +57,7 @@ namespace Bolt {
         return std::atan2(y, x);
     }
 
-    // Hyperbolische Funktionen (optional)
+
     template<typename T>
     inline T Sinh(T angle) {
         return std::sinh(angle);
@@ -73,30 +73,30 @@ namespace Bolt {
         return std::tanh(angle);
     }
 
-    // Konstanten-Shortcuts
+
     template<typename T> constexpr T Pi() { return Constants<T>::Pi; }
     template<typename T> constexpr T HalfPi() { return Constants<T>::HalfPi; }
     template<typename T> constexpr T TwoPi() { return Constants<T>::TwoPi; }
 
-    // Nützliche Hilfsfunktionen
+
     template<typename T>
     inline void Sincos(T angle, T& sinValue, T& cosValue) {
         sinValue = std::sin(angle);
         cosValue = std::cos(angle);
     }
 
-    // Normalisiert einen Winkel auf den Bereich [0, 2pi]
+
     template<typename T>
-    inline T normalizeAngle(T angle) {
+    inline T NormalizeAngle(T angle) {
         angle = std::fmod(angle, Constants<T>::TwoPi);
         if (angle < 0) angle += Constants<T>::TwoPi;
         return angle;
     }
 
-    // Normalisiert einen Winkel auf den Bereich [-pi, pi]
+
     template<typename T>
-    inline T normalizeAngleSigned(T angle) {
-        angle = normalizeAngle(angle);
+    inline T NormalizeAngleSigned(T angle) {
+        angle = NormalizeAngle(angle);
         if (angle > Constants<T>::Pi) angle -= Constants<T>::TwoPi;
         return angle;
     }

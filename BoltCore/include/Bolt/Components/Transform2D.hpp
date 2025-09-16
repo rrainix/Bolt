@@ -34,7 +34,7 @@ namespace Bolt {
             return !(*this == other);
         }
 
-        // Error
+        // Error: Wrong code, will be fixed.
         Transform2D operator+(const Transform2D& other) const {
             return Transform2D(Position + other.Position);
         }
@@ -54,7 +54,7 @@ namespace Bolt {
             return *this;
         }
 
-        // Skalare Multiplikation
+
         Transform2D operator*(float scalar) const {
             return Transform2D(Position * scalar, Rotation * scalar, Scale * scalar);
         }

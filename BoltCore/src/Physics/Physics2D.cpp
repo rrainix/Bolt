@@ -30,7 +30,6 @@ namespace Bolt {
 			static bool Report(b2ShapeId sId, void* ctx) {
 				auto* self = static_cast<Qb*>(ctx);
 
-				// Entity recovern
 				b2BodyId bId = b2Shape_GetBody(sId);
 				void* ud = b2Body_GetUserData(bId);
 				entt::entity h = static_cast<entt::entity>(reinterpret_cast<uintptr_t>(ud));

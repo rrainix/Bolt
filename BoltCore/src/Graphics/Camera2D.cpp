@@ -77,7 +77,6 @@ namespace Bolt {
 		const float xNdc = (2.0f * pos.x / float(m_ViewportWidth)) - 1.0f;
 		const float yNdc = 1.0f - (2.0f * pos.y / float(m_ViewportHeight));
 
-		// Z für Welt-z = 0
 		const bool hd = bgfx::getCaps()->homogeneousDepth;
 		const float zNear = 0.0f, zFar = 100.0f;
 		const float zNdc = hd ? (0.0f - zNear) / (zFar - zNear)

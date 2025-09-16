@@ -177,6 +177,7 @@ namespace Bolt {
 	}
 
 	void Application::Quit() {
+		Logger::Message("Quit");
 		AudioManager::Shutdown();
 		m_Renderer2D.Shutdown();
 	}
