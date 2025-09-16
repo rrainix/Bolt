@@ -20,7 +20,6 @@ namespace Bolt {
 		return (len > 0.0f) ? (a * (1.0f / len)) : Vec2(0.0f, 0.0f);
 	}
 
-	// Distanz
 	inline float Distance(const Vec2& a, const Vec2& b) noexcept {
 		return Length(a - b);
 	}
@@ -29,7 +28,7 @@ namespace Bolt {
 		return LengthSquared(a - b);
 	}
 
-	// Rotation (um Ursprung)
+
 	inline Vec2 Rotated(const Vec2& v, float radians) noexcept {
 		float c = Bolt::Cos(radians);
 		float s = Bolt::Sin(radians);
@@ -40,7 +39,7 @@ namespace Bolt {
 		return a + (b - a) * t;
 	}
 
-	// Winkel
+
 	inline float Angle(const Vec2& a) noexcept {
 		return std::atan2(a.y, a.x);
 	}
@@ -62,7 +61,7 @@ namespace Bolt {
 		const float twoPi = 6.28318530717958647692f;
 		float theta = rand.Next(0.0f, twoPi);
 		float u = rand.Next(0.0f, 1.0f);
-		float r = radius * std::sqrt(u);          // gleichm‰ﬂige Fl‰chenverteilung!
+		float r = radius * std::sqrt(u);
 		return FromAngle(theta) * r;
 	}
 	inline Vec2 RandomOnCircle(float radius, Random& rand) noexcept {

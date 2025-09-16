@@ -24,13 +24,10 @@ namespace Bolt {
 		RenderResources() = default;
 		~RenderResources() = default;
 
-
-		// Initialize shared resources (layouts, common uniforms, default textures)
 		bool Init();
 		void Shutdown();
 
 
-		// Accessors for layouts / handles
 		const bgfx::VertexLayout& GetPosTexLayout() const { return m_PosTexLayout; }
 		const bgfx::VertexLayout& GetPosColorLayout() const { return m_PosColorLayout; }
 
@@ -42,12 +39,7 @@ namespace Bolt {
 		bgfx::VertexLayout m_PosTexLayout;
 		bgfx::VertexLayout m_PosColorLayout;
 
-
-		// common uniforms
 		bgfx::UniformHandle m_SamplerUniform = BGFX_INVALID_HANDLE;
-
-
-		// default white texture (1x1) used as fallback
 		bgfx::TextureHandle m_DefaultTexture = BGFX_INVALID_HANDLE;
 	};
 

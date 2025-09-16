@@ -32,7 +32,6 @@ namespace Bolt {
             return {};
         }
 
-        // Prüfe ob Texture bereits geladen wurde
         auto existingHandle = FindTextureByPath(path);
         if (existingHandle.index != UINT16_MAX) {
             return existingHandle;
@@ -40,20 +39,17 @@ namespace Bolt {
 
         uint16_t index;
         if (!s_FreeIndices.empty()) {
-            // Recycle einen freien Index
             index = s_FreeIndices.front();
             s_FreeIndices.pop();
             auto& entry = s_Textures[index];
 
-            // Alte Texture zerstören falls noch vorhanden
             entry.Texture.Destroy();
 
-            // Neue Texture laden
             entry.Texture = Texture2D(path.c_str(), filter, u, v);
 
             if (!entry.Texture.IsValid()) {
                 Logger::Error("Failed to load texture: " + path);
-                s_FreeIndices.push(index); // Index wieder freigeben
+                s_FreeIndices.push(index);
                 return {};
             }
 
@@ -62,7 +58,6 @@ namespace Bolt {
             entry.Name = path;
         }
         else {
-            // Neuen Entry erstellen
             index = static_cast<uint16_t>(s_Textures.size());
 
             TextureEntry entry;
@@ -105,13 +100,12 @@ namespace Bolt {
 
         TextureEntry& entry = s_Textures[handle.index];
 
-        // Prüfe ob Handle noch gültig ist
+
         if (!entry.IsValid || entry.Generation != handle.generation) {
             Logger::Warning("Texture handle is outdated or invalid");
             return;
         }
 
-        // Verhindere das Löschen von Default-Texturen
         if (handle.index < std::size(s_DefaultTextures)) {
             Logger::Warning("Cannot unload default texture");
             return;
@@ -137,7 +131,6 @@ namespace Bolt {
         std::vector<TextureHandle> handles;
         handles.reserve(s_Textures.size() - std::size(s_DefaultTextures));
 
-        // Überspringe Default-Texturen (Index 0-6)
         for (size_t i = std::size(s_DefaultTextures); i < s_Textures.size(); i++) {
             if (s_Textures[i].IsValid) {
                 handles.emplace_back(static_cast<uint16_t>(i), s_Textures[i].Generation);
@@ -178,7 +171,7 @@ namespace Bolt {
         }
 
         s_IsInitialized = true;
-        s_Textures.reserve(std::size(s_DefaultTextures) + 32); // Reserve für weitere Texturen
+        s_Textures.reserve(std::size(s_DefaultTextures) + 32);
 
         for (const auto& texPath : s_DefaultTextures) {
             TextureEntry entry;
@@ -219,6 +212,6 @@ namespace Bolt {
                 return TextureHandle(static_cast<uint16_t>(i), s_Textures[i].Generation);
             }
         }
-        return TextureHandle(UINT16_MAX, 0); // Invalid handle
+        return TextureHandle(UINT16_MAX, 0);
     }
 }

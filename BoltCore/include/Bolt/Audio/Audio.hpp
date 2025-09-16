@@ -8,7 +8,6 @@ namespace Bolt {
         Audio() = default;
         ~Audio();
 
-        // Non-copyable, movable
         Audio(const Audio&) = delete;
         Audio& operator=(const Audio&) = delete;
         Audio(Audio&& other) noexcept;
@@ -20,7 +19,7 @@ namespace Bolt {
         bool IsLoaded() const { return m_IsLoaded; }
         const std::string& GetFilepath() const { return m_Filepath; }
 
-        // Audio properties
+
         uint32_t GetSampleRate() const;
         uint32_t GetChannels() const;
         uint64_t GetFrameCount() const;

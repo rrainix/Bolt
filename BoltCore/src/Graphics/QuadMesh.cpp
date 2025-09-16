@@ -7,10 +7,10 @@ namespace Bolt {
 
 
 	static const PosTexVertexLocal s_UnitQuad[4] = {
-	{ -0.5f, 0.5f, 0.0f, 0.0f, 0.0f }, // TL
-	{ -0.5f, -0.5f, 0.0f, 0.0f, 1.0f }, // BL
-	{ 0.5f, -0.5f, 0.0f, 1.0f, 1.0f }, // BR
-	{ 0.5f, 0.5f, 0.0f, 1.0f, 0.0f }, // TR
+	{ -0.5f, 0.5f, 0.0f, 0.0f, 0.0f }, 
+	{ -0.5f, -0.5f, 0.0f, 0.0f, 1.0f }, 
+	{ 0.5f, -0.5f, 0.0f, 1.0f, 1.0f }, 
+	{ 0.5f, 0.5f, 0.0f, 1.0f, 0.0f }, 
 	};
 
 
@@ -18,7 +18,7 @@ namespace Bolt {
 
 
 	bool QuadMesh::Init(const bgfx::VertexLayout& layout) {
-		if (bgfx::isValid(m_VB) || bgfx::isValid(m_IB)) return true; // already inited
+		if (bgfx::isValid(m_VB) || bgfx::isValid(m_IB)) return true;
 
 
 		m_VB = bgfx::createVertexBuffer(

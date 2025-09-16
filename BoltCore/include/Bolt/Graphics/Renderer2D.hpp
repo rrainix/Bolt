@@ -38,14 +38,12 @@ namespace Bolt {
 
 	struct InstanceData32
 	{
-		// i_data0
-		float RS0x, RS0y;   // rotScale row0
-		float RS1x, RS1y;   // rotScale row1
+		float RS0x, RS0y;
+		float RS1x, RS1y;
 
-		// i_data1
-		float Tx, Ty;       // translation
-		float ColorPacked;  // RGBA8 als bits in float
-		float Padding;         // padding für 32B-Stride
+		float Tx, Ty;
+		float ColorPacked; 
+		float Padding;
 	};
 
 	struct Item {
@@ -69,16 +67,15 @@ namespace Bolt {
 	};
 	struct StaticBatchKeyHash {
 		size_t operator()(const StaticBatchKey& k) const noexcept {
-			// simple hash
 			return (size_t)k.layer ^ ((size_t)(uint16_t)k.order << 8) ^ ((size_t)k.tex.idx << 16) ^ ((size_t)k.sampler << 24);
 		}
 	};
 
 	struct StaticBatch {
 		StaticBatchKey key;
-		bgfx::DynamicVertexBufferHandle instVB = BGFX_INVALID_HANDLE; // persistent GPU storage
-		uint32_t count = 0;   // number of instances
-		AABB aabb;            // optional: world AABB der ganzen Gruppe (für Chunk-Culling)
+		bgfx::DynamicVertexBufferHandle instVB = BGFX_INVALID_HANDLE; 
+		uint32_t count = 0;
+		AABB aabb;
 	};
 
 	class Renderer2D {
@@ -111,13 +108,13 @@ namespace Bolt {
 		bgfx::DynamicVertexBufferHandle m_InstanceVB{ BGFX_INVALID_HANDLE };
 		uint32_t                       m_InstanceCap{ 0 };
 		uint32_t                       m_InstanceUsed{ 0 };
-		bgfx::VertexLayout             m_InstanceLayout32; // einmalig init (siehe Kommentar unten)
+		bgfx::VertexLayout             m_InstanceLayout32;
 		std::vector<InstanceData32>    m_InstanceScratch;
 
 		std::unordered_map<StaticBatchKey, StaticBatch, StaticBatchKeyHash> m_StaticBatches;
-		// Optional: sortierte Liste für Merge nach (layer, order)
+
 		std::vector<StaticBatch*> m_StaticSorted;
-		bool m_StaticDirty = true; // neu bauen, wenn etwas geändert wurde
+		bool m_StaticDirty = true;
 
 		std::vector<VertexPosTexColor> m_VertexBufferCPU;
 		std::vector<uint16_t> m_IndexBufferCPU;

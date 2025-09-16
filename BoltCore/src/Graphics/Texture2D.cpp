@@ -42,18 +42,15 @@ namespace Bolt {
 		switch (filter)
 		{
 		case Filter::Point:
-			f |= BGFX_SAMPLER_POINT; // == MIN/MAG/MIP_POINT
+			f |= BGFX_SAMPLER_POINT;
 			break;
 		case Filter::Bilinear:
-			f |= BGFX_SAMPLER_MIP_POINT; // min/mag linear (Default)
+			f |= BGFX_SAMPLER_MIP_POINT;
 			break;
 		case Filter::Trilinear:
-			// alles linear (Default) -> nichts setzen
 			break;
 		case Filter::Anisotropic:
 			f |= BGFX_SAMPLER_MIN_ANISOTROPIC | BGFX_SAMPLER_MAG_ANISOTROPIC;
-			// Optional, falls du *kein* Mip-Blending willst:
-			// f |= BGFX_SAMPLER_MIP_POINT;
 			break;
 		}
 		return f;
@@ -61,7 +58,6 @@ namespace Bolt {
 
 	bgfx::TextureHandle Texture2D::Load(const char* path)
 	{
-		// 1) Datei in den Speicher laden
 		bx::FileReader reader;
 		if (!bx::open(&reader, path))
 		{
@@ -74,7 +70,6 @@ namespace Bolt {
 		bx::read(&reader, fileMem->data, size, nullptr);
 		bx::close(&reader);
 
-		// 2) ImageContainer dekodieren
 		static bx::DefaultAllocator s_allocator;
 		bimg::ImageContainer* image = bimg::imageParse(
 			&s_allocator,
@@ -87,7 +82,6 @@ namespace Bolt {
 			return BGFX_INVALID_HANDLE;
 		}
 
-		// 3) Texture aus den rohen Daten erstellen
 		const bool   hasMips = image->m_numMips > 1;
 		m_Width = uint16_t(image->m_width);
 		m_Height = uint16_t(image->m_height);
@@ -96,7 +90,6 @@ namespace Bolt {
 		const bgfx::TextureFormat::Enum fmt =
 			bgfx::TextureFormat::Enum(image->m_format);
 
-		// Memory-Handle mit Callback, damit image freed wird
 		const bgfx::Memory* texMem = bgfx::makeRef(
 			image->m_data,
 			image->m_size,

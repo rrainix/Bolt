@@ -14,11 +14,9 @@ namespace Bolt {
 		static AABB Create(const Vec2& center, const Vec2& halfExtents, float degrees)
 		{
 			float radians = Bolt::Radians<float>(degrees);
-
-			// Rotationsmatrix erstellen
 			Mat2 rotation = Bolt::Rotation(radians);
 
-			// Ecken definieren
+
 			Vec2 corners[4] = {
 				Vec2(-halfExtents.x, -halfExtents.y),
 				Vec2(halfExtents.x, -halfExtents.y),
@@ -26,13 +24,13 @@ namespace Bolt {
 				Vec2(-halfExtents.x, halfExtents.y)
 			};
 
-			// Rotierte Ecken berechnen
+
 			Vec2 rotatedCorners[4];
 			for (int i = 0; i < 4; ++i) {
 				rotatedCorners[i] = center + rotation * corners[i];
 			}
 
-			// Jetzt min/max finden
+
 			Vec2 minVec = rotatedCorners[0];
 			Vec2 maxVec = rotatedCorners[0];
 			for (int i = 1; i < 4; ++i) {
@@ -85,17 +83,17 @@ namespace Bolt {
 		}
 
 		static bool IsAxisAligned(float radians) {
-			constexpr float tolerance = 1e-6f; // Kleine Toleranz für Fließkommavergleiche
+			constexpr float tolerance = 1e-6f;
 
 			const float angles[] = {
 				0.0f,
-				Bolt::HalfPi<float>(),       // 90
-				Bolt::Pi<float>(),            // 180
-				3 * Bolt::HalfPi<float>(),   // 270
-				Bolt::TwoPi<float>()      // 360
+				Bolt::HalfPi<float>(),
+				Bolt::Pi<float>(),
+				3 * Bolt::HalfPi<float>(),
+				Bolt::TwoPi<float>()
 			};
 
-			// Normalisiere den Winkel auf [0, 2)
+
 			float normalizedRadians = std::fmod(radians, Bolt::TwoPi<float>());
 			if (normalizedRadians < 0) {
 				normalizedRadians += Bolt::TwoPi<float>();

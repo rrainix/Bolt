@@ -26,10 +26,10 @@ namespace Bolt {
 
 	void Camera2D::UpdateProj() {
 		const float aspect = float(m_ViewportWidth) / float(m_ViewportHeight);
-		const float halfH = m_OrthographicSize * m_Zoom;  // half height mit Zoom
+		const float halfH = m_OrthographicSize * m_Zoom;
 		const float halfW = halfH * aspect;
 
-		// Z-Leinwand startet etwas vor 0, um numerische Probleme zu vermeiden
+
 		const float zNear = 0.0f;
 		const float zFar = 100.0f;
 
@@ -47,7 +47,7 @@ namespace Bolt {
 		float camModel[16];
 		bx::mtxSRT(
 			camModel,
-			1.0f, 1.0f, 1.0f,                    // kein Zoom in View!
+			1.0f, 1.0f, 1.0f,
 			0.0f, 0.0f, m_Transform->Rotation,
 			m_Transform->Position.x, m_Transform->Position.y, 0.0f
 		);

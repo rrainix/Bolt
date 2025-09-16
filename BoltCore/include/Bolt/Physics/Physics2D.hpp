@@ -16,8 +16,8 @@ namespace Bolt {
 	};
 
 	enum class OverlapMode {
-		First,   ///< gib den allerersten Treffer zurück
-		Nearest  ///< gib den Treffer mit minimalem Abstand zum Zentrum zurück
+		First,
+		Nearest
 	};
 
 	class Physics2D {

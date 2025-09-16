@@ -6,7 +6,7 @@ namespace Bolt {
         uint16_t generation;
 
         TextureHandle(uint16_t index, uint16_t generation) : index{ index }, generation{ generation } {}
-        TextureHandle() : index{ 0 }, generation{ 0 } {} // Invalid handle by default
+        TextureHandle() : index{ 0 }, generation{ 0 } {}
 
         bool IsValid() const { return index != UINT16_MAX; }
 

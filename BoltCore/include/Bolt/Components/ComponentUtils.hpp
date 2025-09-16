@@ -7,7 +7,6 @@
 namespace Bolt {
 	class ComponentUtils {
 	public:
-		// Add Component - Nicht-leere Komponenten
 		template<typename TComponent, typename... Args>
 			requires (!std::is_empty_v<TComponent>)
 		static TComponent& AddComponent(entt::registry& registry, EntityHandle entity, Args&&... args) {
@@ -22,7 +21,6 @@ namespace Bolt {
 					std::forward<Args>(args)...
 				);
 			}
-			//T(Args...) oder Default - Konstruktor
 			else if constexpr (sizeof...(Args) == 0 && std::is_default_constructible_v<TComponent>) {
 				return registry.emplace<TComponent>(entity);
 			}
@@ -31,7 +29,6 @@ namespace Bolt {
 			}
 		}
 
-		// Add Component - Leere Komponenten (Tags)
 		template<typename TTag>
 			requires std::is_empty_v<TTag>
 		static void AddComponent(entt::registry& registry, EntityHandle entity) {
@@ -41,25 +38,24 @@ namespace Bolt {
 			registry.emplace<TTag>(entity);
 		}
 
-		// Has Component
+
 		template<typename TComponent>
 		static bool HasComponent(const entt::registry& registry, EntityHandle entity) {
 			return registry.all_of<TComponent>(entity);
 		}
 
-		// Has Any Component
+
 		template<typename... TComponent>
 		static bool HasAnyComponent(const entt::registry& registry, EntityHandle entity) {
 			return registry.any_of<TComponent...>(entity);
 		}
 
-		// Any Entity Has Component
 		template<typename... TComponent, typename... TEntity>
 		static bool AnyHasComponent(const entt::registry& registry, TEntity... entities) {
 			return (... || registry.any_of<TComponent...>(entities));
 		}
 
-		// Get Component
+
 		template<typename TComponent>
 		static TComponent& GetComponent(entt::registry& registry, EntityHandle entity) {
 			if (!registry.all_of<TComponent>(entity)) {
@@ -68,7 +64,7 @@ namespace Bolt {
 			return registry.get<TComponent>(entity);
 		}
 
-		// Get Component (const version)
+
 		template<typename TComponent>
 		static const TComponent& GetComponent(const entt::registry& registry, EntityHandle entity) {
 			if (!registry.all_of<TComponent>(entity)) {
@@ -77,7 +73,7 @@ namespace Bolt {
 			return registry.get<TComponent>(entity);
 		}
 
-		// Try Get Component (returns nullptr if not found)
+
 		template<typename TComponent>
 		static TComponent* TryGetComponent(entt::registry& registry, EntityHandle entity) {
 			if (!registry.all_of<TComponent>(entity)) {
@@ -86,7 +82,7 @@ namespace Bolt {
 			return &registry.get<TComponent>(entity);
 		}
 
-		// Remove Component
+
 		template<typename TComponent>
 		static void RemoveComponent(entt::registry& registry, EntityHandle entity) {
 			if (!registry.all_of<TComponent>(entity)) {

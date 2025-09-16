@@ -34,15 +34,13 @@ namespace Bolt {
             return !(*this == other);
         }
 
-        // Addition / Subtraktion
+        // Error
         Transform2D operator+(const Transform2D& other) const {
             return Transform2D(Position + other.Position);
         }
         Transform2D operator-(const Transform2D& other) const {
             return Transform2D(Position - other.Position);
         }
-
-        // Compound
         Transform2D& operator+=(const Transform2D& other) {
             Position += other.Position;
             Rotation += other.Rotation;

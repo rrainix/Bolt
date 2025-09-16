@@ -53,8 +53,7 @@ project "BoltCore"
 
   -- Precompiled Header
   pchheader "Bolt/btpch.hpp"
-  pchsource "BoltCore/src/btpch.cpp"  -- siehe kleine Stub-Datei unten
-
+  pchsource "BoltCore/src/btpch.cpp"
   -- Schicke Ordner in VS
   vpaths {
     ["Header Files/*"] = { "BoltCore/include/**.hpp" },
@@ -62,7 +61,7 @@ project "BoltCore"
   }
 
   filter "action:vs*"
-    buildoptions { "/Zi" }           -- wie dein CMake für BoltCore
+    buildoptions { "/Zi" }
   filter {}
 
 project "BoltGame"

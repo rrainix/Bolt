@@ -12,7 +12,7 @@ namespace Bolt {
 		case Wrap::Clamp:  return BGFX_SAMPLER_U_CLAMP;
 		case Wrap::Mirror: return BGFX_SAMPLER_U_MIRROR;
 		case Wrap::Border: return BGFX_SAMPLER_U_BORDER;
-		case Wrap::Repeat: default: return 0; // Repeat = Default
+		case Wrap::Repeat: default: return 0;
 		}
 	}
 	inline uint32_t WrapV(Wrap w) {

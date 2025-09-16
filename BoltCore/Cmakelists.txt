@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(BoltCore LANGUAGES CXX)
 
-# === C++20 ===
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -10,10 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB_RECURSE CORE_SRCS    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 file(GLOB_RECURSE CORE_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
 
-# === Static Library definieren ===
+
 add_library(BoltCore STATIC ${CORE_SRCS})
 
-# === Öffentliche & private Include-Pfade ===
+
 target_include_directories(BoltCore
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -23,23 +23,20 @@ target_include_directories(BoltCore
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-# === Precompiled Header (portabel, CMake managed) ===
-# CMake kümmert sich um /Yc, /Yu und pro-Config-Dateien; dein Code kann weiterhin
-# einfach #include "Bolt/btpch.hpp" benutzen.
 target_precompile_headers(BoltCore PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}/include/Bolt/btpch.hpp")
 
-# === MSVC: einheitliches Debug-Info-Format erzwingen (verhindert /Z7 vs /Zi) ===
+
 if(MSVC)
   target_compile_options(BoltCore PRIVATE /Zi)
 endif()
 
-# === Vendor-Libraries linken (pragmatisch) ===
+
 link_directories("${CMAKE_SOURCE_DIR}/Vendor/External/Library")
 file(GLOB EXTERNAL_LIBS "${CMAKE_SOURCE_DIR}/Vendor/External/Library/*.lib")
 target_link_libraries(BoltCore PUBLIC ${EXTERNAL_LIBS})
 
-# === FILE_SET für Headers → bessere IDE-Darstellung & install() ===
+
 target_sources(BoltCore
   PUBLIC
     FILE_SET HEADERS
@@ -47,11 +44,11 @@ target_sources(BoltCore
     FILES     ${CORE_HEADERS}
 )
 
-# === IDE-Ordnerstruktur verschönern (Source Groups) ===
+
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/include FILES ${CORE_HEADERS})
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src     FILES ${CORE_SRCS})
 
-# === Install-Regeln (optional) ===
+
 install(TARGETS BoltCore
   EXPORT BoltCoreTargets
   ARCHIVE DESTINATION lib

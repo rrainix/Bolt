@@ -15,11 +15,10 @@ namespace Bolt {
         m_height = height;
         m_resetFlags = resetFlags;
 
-        // Set platform-specific window handle etc.
         bgfx::setPlatformData(pd);
 
         bgfx::Init init{};
-        init.type = bgfx::RendererType::Count; // auto-select
+        init.type = bgfx::RendererType::Count;
         init.platformData = pd;
         init.resolution.width = static_cast<uint32_t>(m_width);
         init.resolution.height = static_cast<uint32_t>(m_height);
@@ -30,7 +29,7 @@ namespace Bolt {
             return false;
         }
 
-        // Default view rects (explicit pixel rects)
+
         for (uint16_t i = 0; i < static_cast<uint16_t>(ViewID::Count); ++i) {
             bgfx::setViewRect(i, 0, 0, static_cast<uint16_t>(m_width), static_cast<uint16_t>(m_height));
         }
@@ -47,7 +46,7 @@ namespace Bolt {
         m_height = height;
         bgfx::reset(static_cast<uint32_t>(m_width), static_cast<uint32_t>(m_height), m_resetFlags);
 
-        // Re-apply view rects after reset
+
         for (uint16_t i = 0; i < static_cast<uint16_t>(ViewID::Count); ++i) {
             bgfx::setViewRect(i, 0, 0, static_cast<uint16_t>(m_width), static_cast<uint16_t>(m_height));
         }
@@ -62,7 +61,6 @@ namespace Bolt {
 
     void RenderContext::SetViewCamera(ViewID viewId, const float view[16], const float proj[16]) const {
         bgfx::setViewTransform(GetViewId(viewId), view, proj);
-        // Ensure view rect is set (safe default)
         bgfx::setViewRect(GetViewId(viewId), 0, 0, static_cast<uint16_t>(m_width), static_cast<uint16_t>(m_height));
     }
 
@@ -75,4 +73,4 @@ namespace Bolt {
         bgfx::setViewRect(GetViewId(viewId), x, y, width, height);
     }
 
-} // namespace Bolt
+}

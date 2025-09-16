@@ -46,7 +46,6 @@ namespace Bolt {
         static float ScrollValue() { return s_ScrollValue; }
 
     private:
-        // Internal update: copy current -> previous
         static void Update() {
             std::copy(std::begin(s_CurrentKeyStates), std::end(s_CurrentKeyStates), std::begin(s_PreviousKeyStates));
             std::copy(std::begin(s_CurrentMouseButtons), std::end(s_CurrentMouseButtons), std::begin(s_PreviousMouseButtons));
@@ -64,7 +63,7 @@ namespace Bolt {
             s_Axis = { x, y };
         }
 
-        // Callbacks
+
         static void OnKeyDown(sapp_keycode k) { if (k >= 0 && k < k_KeyCount) s_CurrentKeyStates[k] = true; }
         static void OnKeyUp(sapp_keycode k) { if (k >= 0 && k < k_KeyCount) s_CurrentKeyStates[k] = false; }
         static void OnMouseDown(int btn) { if (btn >= 0 && btn < k_MouseCount) s_CurrentMouseButtons[btn] = true; }

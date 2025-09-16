@@ -16,7 +16,6 @@ namespace Bolt {
 		: m_EntityHandle(e), m_Registry(&r) {
 	}
 
-	// Factory-Funktion
 	Entity Entity::Create() {
 		Scene& activeScene = SceneManager::GetActiveScene();
 

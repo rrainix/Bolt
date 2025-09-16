@@ -33,18 +33,15 @@ namespace Bolt {
 			return true;
 		}
 
-		// Initialize miniaudio engine with default configuration
 		ma_result result = ma_engine_init(nullptr, &s_Engine);
 		if (result != MA_SUCCESS) {
 			std::cerr << "AudioManager: Failed to initialize miniaudio engine. Error: " << result << std::endl;
 			return false;
 		}
 
-		// Reserve space for sound instances to avoid frequent reallocations
 		s_soundInstances.reserve(256);
 		s_freeInstanceIndices.reserve(256);
 
-		// Set initial listener properties
 		UpdateListener();
 
 		s_IsInitialized = true;
@@ -56,7 +53,6 @@ namespace Bolt {
 			return;
 		}
 
-		// Stop and cleanup all active sound instances
 		for (auto& instance : s_soundInstances) {
 			if (instance.IsValid) {
 				ma_sound_stop(&instance.Sound);
@@ -66,10 +62,8 @@ namespace Bolt {
 		s_soundInstances.clear();
 		s_freeInstanceIndices.clear();
 
-		// Unload all audio resources
 		UnloadAllAudio();
 
-		// Shutdown miniaudio engine
 		ma_engine_uninit(&s_Engine);
 		s_IsInitialized = false;
 	}
@@ -79,20 +73,14 @@ namespace Bolt {
 			return;
 		}
 
-		// Reset frame counter
 		s_soundsPlayedThisFrame = 0;
 
-		// Process queued sound requests
 		ProcessSoundQueue();
-
-		// Clean up finished sounds
 		CleanupFinishedSounds();
-
-		// Update listener and sound instances
 		UpdateListener();
 		UpdateSoundInstances();
 
-		// Update active sound count
+
 		s_activeSoundCount = 0;
 		for (const auto& instance : s_soundInstances) {
 			if (instance.IsValid && ma_sound_is_playing(&instance.Sound)) {
@@ -106,24 +94,22 @@ namespace Bolt {
 			return;
 		}
 
-		// Check if we can play this sound
 		if (!CanPlaySound(handle, priority)) {
 			return;
 		}
 
-		// Check throttling
+
 		if (IsThrottled(handle)) {
 			return;
 		}
 
-		// Play immediately if under limits
+
 		if (s_soundsPlayedThisFrame < s_maxSoundsPerFrame && s_activeSoundCount < s_maxConcurrentSounds) {
 			PlayOneShot(handle, volume);
 			s_soundsPlayedThisFrame++;
 			ThrottleSound(handle);
 		}
 		else {
-			// Queue for later processing
 			SoundRequest request;
 			request.Handle = handle;
 			request.Volume = volume;
@@ -166,25 +152,24 @@ namespace Bolt {
 	void AudioManager::PlayBatchOneShots(const std::vector<std::pair<AudioHandle, float>>& sounds) {
 		for (const auto& [handle, volume] : sounds) {
 			if (s_soundsPlayedThisFrame >= s_maxSoundsPerFrame) {
-				break; // Stop processing if frame limit reached
+				break; 
 			}
 			PlayOneShotLimited(handle, volume, 1.0f);
 		}
 	}
 
 	bool AudioManager::CanPlaySound(const AudioHandle& handle, float priority) {
-		// Always allow high priority sounds
 		if (priority >= 2.0f) {
 			return true;
 		}
 
-		// Check global limits
+	
 		if (s_activeSoundCount >= s_maxConcurrentSounds) {
-			return priority > 1.5f; // Only allow higher priority sounds
+			return priority > 1.5f; 
 		}
 
 		if (s_soundsPlayedThisFrame >= s_maxSoundsPerFrame) {
-			return priority > 1.8f; // Very restrictive for frame limits
+			return priority > 1.8f; 
 		}
 
 		return true;
@@ -192,7 +177,7 @@ namespace Bolt {
 
 	void AudioManager::ProcessSoundQueue() {
 		uint32_t processed = 0;
-		const uint32_t maxProcessPerFrame = 4; // Limit queue processing
+		const uint32_t maxProcessPerFrame = 4;
 
 		while (!s_soundQueue.empty() && processed < maxProcessPerFrame &&
 			s_soundsPlayedThisFrame < s_maxSoundsPerFrame &&
@@ -201,7 +186,7 @@ namespace Bolt {
 			SoundRequest request = s_soundQueue.top();
 			s_soundQueue.pop();
 
-			// Skip old requests (older than 200ms)
+
 			auto now = std::chrono::steady_clock::now();
 			auto age = std::chrono::duration_cast<std::chrono::milliseconds>(now - request.RequestTime);
 			if (age.count() > 200) {
@@ -209,13 +194,12 @@ namespace Bolt {
 				continue;
 			}
 
-			// Check if still throttled
 			if (IsThrottled(request.Handle)) {
 				processed++;
 				continue;
 			}
 
-			// Play the sound
+
 			if (request.Is3D) {
 				PlayOneShotAtPosition(request.Handle, request.Position, request.Volume);
 			}
@@ -249,11 +233,11 @@ namespace Bolt {
 	}
 
 	void AudioManager::SetMaxConcurrentSounds(uint32_t maxSounds) {
-		s_maxConcurrentSounds = std::min(maxSounds, 128u); // Cap at 128
+		s_maxConcurrentSounds = std::min(maxSounds, 128u); 
 	}
 
 	void AudioManager::SetMaxSoundsPerFrame(uint32_t maxPerFrame) {
-		s_maxSoundsPerFrame = std::min(maxPerFrame, 16u); // Cap at 16
+		s_maxSoundsPerFrame = std::min(maxPerFrame, 16u);
 	}
 
 	uint32_t AudioManager::GetActiveSoundCount() {
@@ -285,7 +269,7 @@ namespace Bolt {
 
 		auto it = s_audioMap.find(handle.GetHandle());
 		if (it != s_audioMap.end()) {
-			// Stop any playing instances of this audio
+
 			for (auto& instance : s_soundInstances) {
 				if (instance.IsValid && instance.AudioHandle == handle) {
 					ma_sound_stop(&instance.Sound);
@@ -299,7 +283,7 @@ namespace Bolt {
 	}
 
 	void AudioManager::UnloadAllAudio() {
-		// Stop all sound instances first
+
 		for (auto& instance : s_soundInstances) {
 			if (instance.IsValid) {
 				ma_sound_stop(&instance.Sound);
@@ -317,12 +301,10 @@ namespace Bolt {
 			return;
 		}
 
-		// Stop current instance if already playing
 		if (source.GetInstanceId() != 0) {
 			StopAudioSource(source);
 		}
 
-		// Create new sound instance
 		uint32_t instanceId = CreateSoundInstance(source.GetAudioHandle());
 		if (instanceId == 0) {
 			std::cerr << "AudioManager: Failed to create sound instance" << std::endl;
@@ -333,7 +315,6 @@ namespace Bolt {
 		SoundInstance* instance = GetSoundInstance(instanceId);
 
 		if (instance) {
-			// Apply all source settings
 			ma_sound_set_volume(&instance->Sound, source.GetVolume() * s_masterVolume);
 			ma_sound_set_pitch(&instance->Sound, source.GetPitch());
 			ma_sound_set_looping(&instance->Sound, source.IsLooping());
@@ -354,7 +335,7 @@ namespace Bolt {
 				ma_sound_set_positioning(&instance->Sound, ma_positioning_relative);
 			}
 
-			// Start playback
+
 			ma_result result = ma_sound_start(&instance->Sound);
 			if (result != MA_SUCCESS) {
 				std::cerr << "AudioManager: Failed to start sound playback. Error: " << result << std::endl;
@@ -439,7 +420,7 @@ namespace Bolt {
 			return;
 		}
 
-		// Create a temporary sound for one-shot playback
+
 		ma_sound sound;
 		ma_result result = ma_sound_init_from_file(&s_Engine, audio->GetFilepath().c_str(), 0, nullptr, nullptr, &sound);
 
@@ -464,7 +445,6 @@ namespace Bolt {
 			return;
 		}
 
-		// Create a temporary positioned sound for one-shot playback
 		ma_sound sound;
 		ma_result result = ma_sound_init_from_file(&s_Engine, audio->GetFilepath().c_str(), 0, nullptr, nullptr, &sound);
 
@@ -496,8 +476,6 @@ namespace Bolt {
 		return (it != s_audioMap.end()) ? it->second.get() : nullptr;
 	}
 
-	// Private methods implementation
-
 	AudioHandle::HandleType AudioManager::GenerateHandle() {
 		return s_nextHandle++;
 	}
@@ -514,20 +492,17 @@ namespace Bolt {
 
 		uint32_t instanceId;
 
-		// Reuse a free instance if available
 		if (!s_freeInstanceIndices.empty()) {
 			instanceId = s_freeInstanceIndices.back();
 			s_freeInstanceIndices.pop_back();
 		}
 		else {
-			// Create new instance
 			instanceId = static_cast<uint32_t>(s_soundInstances.size());
 			s_soundInstances.emplace_back();
 		}
 
 		SoundInstance& instance = s_soundInstances[instanceId];
 
-		// Initialize sound from the audio file
 		ma_result result = ma_sound_init_from_file(&s_Engine, audio->GetFilepath().c_str(),
 			0, nullptr, nullptr, &instance.Sound);
 
@@ -540,7 +515,7 @@ namespace Bolt {
 		instance.AudioHandle = audioHandle;
 		instance.IsValid = true;
 
-		return instanceId + 1; // Add 1 so that 0 can represent invalid ID
+		return instanceId + 1;
 	}
 
 	void AudioManager::DestroySoundInstance(uint32_t instanceId) {
@@ -548,7 +523,7 @@ namespace Bolt {
 			return;
 		}
 
-		uint32_t index = instanceId - 1; // Subtract 1 because we added 1 in CreateSoundInstance
+		uint32_t index = instanceId - 1;
 
 		if (index >= s_soundInstances.size()) {
 			return;
@@ -585,7 +560,6 @@ namespace Bolt {
 			SoundInstance& instance = s_soundInstances[i];
 
 			if (instance.IsValid) {
-				// Check if sound has finished playing
 				if (!ma_sound_is_playing(&instance.Sound)) {
 					ma_sound_uninit(&instance.Sound);
 					instance.IsValid = false;
@@ -600,19 +574,12 @@ namespace Bolt {
 		if (!s_IsInitialized) {
 			return;
 		}
-
-		// Update listener properties (already set individually, but could batch here if needed)
-		// This is called every frame to allow for smooth listener updates
 	}
 
 	void AudioManager::UpdateSoundInstances() {
 		if (!s_IsInitialized) {
 			return;
 		}
-
-		// Update any dynamic properties of sound instances
-		// This could include things like doppler effects, distance calculations, etc.
-		// For now, most updates are handled when properties are set directly
 	}
 
-} // namespace Bolt
+}

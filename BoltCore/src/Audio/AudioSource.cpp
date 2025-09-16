@@ -16,14 +16,12 @@ namespace Bolt {
             return;
         }
 
-        // Delegate to AudioManager for actual playback
-
         AudioManager::PlayAudioSource(*this);
     }
 
     void AudioSource::Pause() {
         if (m_instanceId == 0) {
-            return; // Nothing is playing
+            return; 
         }
 
         AudioManager::PauseAudioSource(*this);
@@ -32,7 +30,7 @@ namespace Bolt {
 
     void AudioSource::Stop() {
         if (m_instanceId == 0) {
-            return; // Nothing is playing
+            return;
         }
 
         AudioManager::StopAudioSource(*this);
@@ -40,16 +38,15 @@ namespace Bolt {
 
     void AudioSource::Resume() {
         if (m_instanceId == 0) {
-            return; // Nothing to resume
+            return;
         }
 
         AudioManager::ResumeAudioSource(*this);
     }
 
     void AudioSource::SetVolume(float volume) {
-        m_Volume = std::max(0.0f, volume); // Clamp to minimum 0
+        m_Volume = std::max(0.0f, volume); 
 
-        // If currently playing, update the live sound instance
         if (m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -60,9 +57,8 @@ namespace Bolt {
     }
 
     void AudioSource::SetPitch(float pitch) {
-        m_Pitch = std::max(0.01f, pitch); // Clamp to minimum 0.01 to avoid issues
+        m_Pitch = std::max(0.01f, pitch);
 
-        // If currently playing, update the live sound instance
         if (m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -74,7 +70,7 @@ namespace Bolt {
     void AudioSource::SetLoop(bool loop) {
         m_Loop = loop;
 
-        // If currently playing, update the live sound instance
+       
         if (m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -86,7 +82,7 @@ namespace Bolt {
     void AudioSource::SetSpatial(bool spatial) {
         m_Spatial = spatial;
 
-        // If currently playing, update the live sound instance
+       
         if (m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -108,7 +104,7 @@ namespace Bolt {
     void AudioSource::SetPosition(const glm::vec3& position) {
         m_Position = position;
 
-        // If spatial and currently playing, update the live sound instance
+      
         if (m_Spatial && m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -120,7 +116,7 @@ namespace Bolt {
     void AudioSource::SetVelocity(const glm::vec3& velocity) {
         m_Velocity = velocity;
 
-        // If spatial and currently playing, update the live sound instance
+
         if (m_Spatial && m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -132,7 +128,7 @@ namespace Bolt {
     void AudioSource::SetMinDistance(float distance) {
         m_MinDistance = std::max(0.0f, distance);
 
-        // If spatial and currently playing, update the live sound instance
+
         if (m_Spatial && m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -142,9 +138,9 @@ namespace Bolt {
     }
 
     void AudioSource::SetMaxDistance(float distance) {
-        m_MaxDistance = std::max(m_MinDistance, distance); // Ensure max >= min
+        m_MaxDistance = std::max(m_MinDistance, distance);
 
-        // If spatial and currently playing, update the live sound instance
+
         if (m_Spatial && m_instanceId != 0) {
             auto* instance = AudioManager::GetSoundInstance(m_instanceId);
             if (instance && instance->IsValid) {
@@ -154,11 +150,10 @@ namespace Bolt {
     }
 
     void AudioSource::SetAttenuationModel(int model) {
-        // Validate attenuation model (miniaudio supports 0-4)
         if (model >= 0 && model <= 4) {
             m_AttenuationModel = model;
 
-            // If spatial and currently playing, update the live sound instance
+
             if (m_Spatial && m_instanceId != 0) {
                 auto* instance = AudioManager::GetSoundInstance(m_instanceId);
                 if (instance && instance->IsValid) {
@@ -191,8 +186,6 @@ namespace Bolt {
 
         auto* instance = AudioManager::GetSoundInstance(m_instanceId);
         if (instance && instance->IsValid) {
-            // In miniaudio, a sound is paused if it's not playing but has been started
-            // We need to track this state or check if the sound was manually stopped
             return !ma_sound_is_playing(&instance->Sound) && ma_sound_at_end(&instance->Sound) == MA_FALSE;
         }
 
@@ -200,9 +193,7 @@ namespace Bolt {
     }
 
 
-    // Utility methods for easier usage
     void AudioSource::SetAudioHandle(const AudioHandle& handle) {
-        // Stop current playback if switching audio
         if (IsPlaying()) {
             Stop();
         }
@@ -229,19 +220,12 @@ namespace Bolt {
             float originalVolume = m_Volume;
             SetVolume(0.0f);
             Play();
-
-            // Note: For a complete fade implementation, you would need to implement
-            // a tween system or update the volume over time in your game loop
-            // This is a simplified version that just starts playback
             SetVolume(originalVolume);
         }
     }
 
     void AudioSource::FadeOut(float duration) {
         if (IsPlaying()) {
-            // Note: For a complete fade implementation, you would gradually
-            // reduce volume over time and then stop the sound
-            // This is a simplified version that just stops immediately
             Stop();
         }
     }

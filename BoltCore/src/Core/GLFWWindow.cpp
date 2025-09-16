@@ -20,14 +20,14 @@ namespace Bolt {
 		glfwWindowHint(GLFW_SAMPLES, 8);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		// Setup Fenstergrößenhinweise
+
 		if (m_windowMode == FULLSCREEN) glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
 		if (m_windowMode != WINDOWED_FREE) glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
 		m_monitor = glfwGetPrimaryMonitor();
 		k_mode = glfwGetVideoMode(m_monitor);
 
-		// Fenster erstellen je nach Modus
+
 		if (m_windowMode == FULLSCREEN) {
 			m_window = glfwCreateWindow(k_mode->WIDTH, k_mode->HEIGHT, m_title.c_str(), m_monitor, nullptr);
 			maximizeWindow();
@@ -36,7 +36,7 @@ namespace Bolt {
 			m_window = glfwCreateWindow(k_mode->WIDTH, k_mode->HEIGHT, m_title.c_str(), nullptr, nullptr);
 			maximizeWindow();
 		}
-		else { // WINDOWED_FREE
+		else {
 			m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), nullptr, nullptr);
 			centerWindow();
 		}
@@ -57,7 +57,7 @@ namespace Bolt {
 	}
 
 	void Window::scrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
-		// Input::OnScroll( ) { s_ScrollValue += delta; }
+
 	}
 
 	void Window::centerWindow() {

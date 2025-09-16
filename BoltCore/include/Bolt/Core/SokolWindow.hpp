@@ -21,16 +21,15 @@ namespace Bolt {
 		using CleanupFn = std::function<void()>;
 		using EventFn = std::function<void(const sapp_event&)>;
 		using ResizeFn = std::function<void(int, int)>;
-		using KeyFn = std::function<void(sapp_keycode, int)>;       // key, modifiers
+		using KeyFn = std::function<void(sapp_keycode, int)>;
 		using CharFn = std::function<void(char)>;
 		using MouseBtnFn = std::function<void(int /*button*/)>;
 		using MouseMoveFn = std::function<void(double /*x*/, double /*y*/)>;
 		using ScrollFn = std::function<void(double /*dx*/, double /*dy*/)>;
 
-		SokolWindow();                       // leer
+		SokolWindow();
 		explicit SokolWindow(const sapp_desc& desc);
 
-		// Instanz-Callbacks setzen
 		void SetInit(InitFn cb) { m_init = std::move(cb); }
 		void SetFrame(FrameFn cb) { m_frame = std::move(cb); }
 		void SetCleanup(CleanupFn cb) { m_cleanup = std::move(cb); }
@@ -44,10 +43,9 @@ namespace Bolt {
 		void SetMouseMove(MouseMoveFn cb) { m_mouseMove = std::move(cb); }
 		void SetScroll(ScrollFn cb) { m_scroll = std::move(cb); }
 
-		// Starte App (blockierend)
 		void Run();
 
-		// PlatformData für bgfx
+
 		bgfx::PlatformData PlatformData() const;
 		Vec2Int Size() const;
 		int Width() const;
@@ -64,19 +62,17 @@ namespace Bolt {
 
 		void SetCursor(const sapp_mouse_cursor& cursor);
 
-		// Zugriff auf die Description
+
 		sapp_desc& Desc() { return m_desc; }
 		const sapp_desc& Desc() const { return m_desc; }
 
 	private:
-		// Trampoline für C-Callbacks
 		static void s_init();
 		static void s_frame();
 		static void s_cleanup();
 		static void s_event(const sapp_event* ev);
 		static SokolWindow* Self();
 
-		// Member
 		sapp_desc    m_desc{};
 		InitFn       m_init;
 		FrameFn      m_frame;

@@ -14,7 +14,6 @@ namespace Bolt {
         , m_IsLoaded(other.m_IsLoaded)
         , m_Filepath(std::move(other.m_Filepath))
     {
-        // Reset the moved-from object
         std::memset(&other.m_Decoder, 0, sizeof(ma_decoder));
         other.m_IsLoaded = false;
         other.m_Filepath.clear();
@@ -22,15 +21,12 @@ namespace Bolt {
 
     Audio& Audio::operator=(Audio&& other) noexcept {
         if (this != &other) {
-            // Cleanup current resources
             Cleanup();
 
-            // Move data from other
             m_Decoder = other.m_Decoder;
             m_IsLoaded = other.m_IsLoaded;
             m_Filepath = std::move(other.m_Filepath);
 
-            // Reset the moved-from object
             std::memset(&other.m_Decoder, 0, sizeof(ma_decoder));
             other.m_IsLoaded = false;
             other.m_Filepath.clear();
@@ -44,10 +40,10 @@ namespace Bolt {
             return false;
         }
 
-        // Cleanup any existing audio data
+
         Cleanup();
 
-        // Initialize decoder from file
+
         ma_decoder_config config = ma_decoder_config_init_default();
         ma_result result = ma_decoder_init_file(filepath.c_str(), &config, &m_Decoder);
 

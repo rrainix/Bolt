@@ -32,7 +32,7 @@ namespace Bolt {
 		AudioManager::Initialize();
 	}
 
-	float Application::s_TargetFramerate = 144.0f;
+	float Application::s_TargetFramerate = 60.0f;
 
 	void Application::Run() {
 		sapp_desc d{};
@@ -44,7 +44,7 @@ namespace Bolt {
 		m_Window = SokolWindow(d);
 
 		m_Window.SetInit([&] {
-			 Initialize();
+			Initialize();
 			});
 
 		using clock = std::chrono::high_resolution_clock;
@@ -64,7 +64,6 @@ namespace Bolt {
 				std::this_thread::sleep_until(nextFrameTime - std::chrono::milliseconds(10));
 			}
 			while (clock::now() < nextFrameTime) {
-				//std::this_thread::yield();
 				_mm_pause();
 			}
 			auto frameStart = clock::now();
@@ -75,12 +74,11 @@ namespace Bolt {
 			fixedUpdateAccumulator += Time::GetDeltaTime();
 			while (fixedUpdateAccumulator >= Time::s_FixedDeltaTime) {
 				{
-					//PROFILE_CPU("Physics", Profiler::CPUCategory::Physics);
 					try {
 						FixedUpdate();
 					}
 					catch (std::runtime_error e) {
-						//Debug::logError(e.what());
+						Logger::Error(e.what());
 					}
 				}
 
@@ -154,7 +152,7 @@ namespace Bolt {
 		}
 
 		if (Input::GetMouse(0)) m_Window.SetCursor(sapp_mouse_cursor::SAPP_MOUSECURSOR_POINTING_HAND);
-        else m_Window.SetCursor(sapp_mouse_cursor::SAPP_MOUSECURSOR_DEFAULT);
+		else m_Window.SetCursor(sapp_mouse_cursor::SAPP_MOUSECURSOR_DEFAULT);
 
 		m_Window.SetWindowTitle(std::to_string(1.0f / Time::GetDeltaTimeUnscaled()) + " FPS" + std::to_string(1.0f / sapp_frame_duration()) + " SFPS TARGET FPS:" + std::to_string(s_TargetFramerate));
 	}
@@ -179,7 +177,7 @@ namespace Bolt {
 	}
 
 	void Application::Quit() {
-		AudioManager::Shutdown(); 
+		AudioManager::Shutdown();
 		m_Renderer2D.Shutdown();
 	}
 }

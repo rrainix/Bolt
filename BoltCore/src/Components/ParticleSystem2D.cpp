@@ -9,7 +9,7 @@ namespace Bolt {
 		if (m_IsEmitting) {
 			float toEmit = EmissionSettings.EmitOverTime * deltaTime + m_EmitAccumulator;
 			int emitCount = static_cast<int>(toEmit);
-			m_EmitAccumulator = toEmit - emitCount; // Rest behalten
+			m_EmitAccumulator = toEmit - emitCount;
 			Emit(emitCount);
 
 			for (auto& burst : m_Bursts) {

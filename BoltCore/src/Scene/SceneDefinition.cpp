@@ -6,12 +6,10 @@
 
 namespace Bolt {
 	std::unique_ptr<Scene> SceneDefinition::instantiate() const {
-		// Erstelle neue Scene-Instanz (Konstruktor ist friend)
 		auto scene = std::unique_ptr<Scene>(
 			new Scene(m_name, this, m_isPersistent)
 		);
 
-		// Erstelle alle Systems aus den Factories
 		for (const auto& factory : m_systemFactories) {
 			try {
 				auto system = factory();
@@ -28,7 +26,7 @@ namespace Bolt {
 			}
 		}
 
-		// Rufe Initialize-Callbacks auf (einmalig beim Erstellen)
+
 		for (const auto& callback : m_initializeCallbacks) {
 			try {
 				callback(*scene);
@@ -39,11 +37,9 @@ namespace Bolt {
 			}
 		}
 
-		// Awake alle Systems
 		scene->AwakeSystems();
-
-		// Start alle Systems
 		scene->StartSystems();
+
 		return scene;
 	}
 }

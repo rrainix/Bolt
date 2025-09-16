@@ -11,7 +11,6 @@ namespace Bolt {
         static constexpr T deg2rad = Pi / T(180.0);
     };
 
-    // Winkel-Konvertierung
     template<typename T>
     inline T Radians(T degrees) {
         return degrees * Constants<T>::deg2rad;
@@ -22,7 +21,6 @@ namespace Bolt {
         return radians * Constants<T>::rad2deg;
     }
 
-    // Trigonometrische Funktionen
     template<typename T>
     inline T Sin(T angle) {
         return std::sin(angle);

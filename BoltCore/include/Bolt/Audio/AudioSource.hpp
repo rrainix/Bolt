@@ -9,13 +9,13 @@ namespace Bolt {
 		AudioSource() = default;
 		AudioSource(const AudioHandle& audioHandle);
 
-		// Audio control
+
 		void Play();
 		void Pause();
 		void Stop();
 		void Resume();
 
-		// Settings
+
 		void SetVolume(float volume);
 		void SetPitch(float pitch);
 		void SetLoop(bool loop);
@@ -31,7 +31,7 @@ namespace Bolt {
 		void FadeIn(float duration);
 		void FadeOut(float duration);
 
-		// Getters
+
 		float GetVolume() const { return m_Volume; }
 		float GetPitch() const { return m_Pitch; }
 		bool IsLooping() const { return m_Loop; }
@@ -41,31 +41,31 @@ namespace Bolt {
 		const glm::vec3& GetPosition() const { return m_Position; }
 		const AudioHandle& GetAudioHandle() const { return m_audioHandle; }
 
-		// Neue Getter hinzufügen:
+
 		const glm::vec3& GetVelocity() const { return m_Velocity; }
 		float GetMinDistance() const { return m_MinDistance; }
 		float GetMaxDistance() const { return m_MaxDistance; }
 		int GetAttenuationModel() const { return m_AttenuationModel; }
 
-		// Internal
+
 		uint32_t GetInstanceId() const { return m_instanceId; }
 		void SetInstanceId(uint32_t id) { m_instanceId = id; }
 
 	private:
 		AudioHandle m_audioHandle;
-		uint32_t m_instanceId = 0; // Internal sound instance ID
+		uint32_t m_instanceId = 0;
 
-		// Settings
+
 		float m_Volume = 1.0f;
 		float m_Pitch = 1.0f;
 		bool m_Loop = false;
 		bool m_Spatial = false;
 
-		// 3D Audio properties
+
 		glm::vec3 m_Position{ 0.0f };
 		glm::vec3 m_Velocity{ 0.0f };
 		float m_MinDistance = 1.0f;
 		float m_MaxDistance = 100.0f;
-		int m_AttenuationModel = 0; // Linear, exponential, etc.
+		int m_AttenuationModel = 0;
 	};
 }

@@ -13,7 +13,6 @@ namespace Bolt {
 		auto& phys = PhysicsSystem::GetMainPhysicsWorld();
 		b2WorldId world = phys.m_WorldId;
 
-		// ShapeProxy für einen Kreis: single point + radius
 		b2ShapeProxy proxy{};
 		proxy.count = 1;
 		proxy.points[0] = { center.x, center.y };
@@ -38,10 +37,9 @@ namespace Bolt {
 
 				if (self->mode == OverlapMode::First) {
 					self->first = h;
-					return false; // sofort abbrechen
+					return false;
 				}
 
-				// Nearest: Abstand  Body-Position   Kreis Mittelpunkt
 				b2Transform xf = b2Body_GetTransform(bId);
 				float dx = xf.p.x - self->ctr.x;
 				float dy = xf.p.y - self->ctr.y;
@@ -50,7 +48,7 @@ namespace Bolt {
 					self->bestDist2 = d2;
 					self->nearest = h;
 				}
-				return true; // weitersuchen
+				return true;
 			}
 		} qb{ center, mode, std::nullopt, std::nullopt };
 
@@ -63,7 +61,6 @@ namespace Bolt {
 		b2WorldId world = phys.m_WorldId;
 		float radians = Bolt::Radians<float>(degrees);
 
-		// Eckpunkte des OBB in Weltkoordinaten
 		Vec2 corners[4] = {
 			{ halfExtents.x,  halfExtents.y},
 			{-halfExtents.x,  halfExtents.y},
@@ -95,7 +92,7 @@ namespace Bolt {
 			static bool Report(b2ShapeId sId, void* ctx) {
 				auto* self = static_cast<Qb*>(ctx);
 
-				// Entity recovern
+
 				b2BodyId bId = b2Shape_GetBody(sId);
 				void* ud = b2Body_GetUserData(bId);
 				entt::entity h = static_cast<entt::entity>(reinterpret_cast<uintptr_t>(ud));
@@ -105,7 +102,6 @@ namespace Bolt {
 					return false;
 				}
 
-				// Nearest: Abstand  Body Position   OBB Zentrum
 				b2Transform xf = b2Body_GetTransform(bId);
 				float dx = xf.p.x - self->ctr.x;
 				float dy = xf.p.y - self->ctr.y;
@@ -126,21 +122,17 @@ namespace Bolt {
 		auto& phys = PhysicsSystem::GetMainPhysicsWorld();
 		b2WorldId world = phys.m_WorldId;
 
-		// Ursprung und Translation berechnen
 		b2Vec2 o{ origin.x, origin.y };
 		Vec2 nd = Normalized(direction);
 		b2Vec2 t{ nd.x * maxDistance, nd.y * maxDistance };
 
-		// Standard Filter (alle Kollisionsgruppen)
 		b2QueryFilter filter = b2DefaultQueryFilter();
 
-		// C-API: hole den nächsten Treffer
-		b2RayResult r = b2World_CastRayClosest(world, o, t, filter);  //  
+		b2RayResult r = b2World_CastRayClosest(world, o, t, filter);
 
 		if (!b2Shape_IsValid(r.shapeId))
 			return std::nullopt;
 
-		// Entity aus UserData recovern
 		b2BodyId   bId = b2Shape_GetBody(r.shapeId);
 		void* ud = b2Body_GetUserData(bId);
 		uintptr_t i = reinterpret_cast<uintptr_t>(ud);
@@ -157,7 +149,6 @@ namespace Bolt {
 		auto& phys = PhysicsSystem::GetMainPhysicsWorld();
 		b2WorldId world = phys.m_WorldId;
 
-		// ShapeProxy für Kreis
 		b2ShapeProxy proxy{};
 		proxy.count = 1;
 		proxy.points[0] = { center.x, center.y };
@@ -174,11 +165,11 @@ namespace Bolt {
 				void* ud = b2Body_GetUserData(bId);
 				entt::entity h = static_cast<entt::entity>(reinterpret_cast<uintptr_t>(ud));
 				self->out->push_back(h);
-				return true; // true = weiter suchen
+				return true;
 			}
 		} cb{ &results };
 
-		b2World_OverlapShape(world, &proxy, filter, Cb::Report, &cb);  // C API
+		b2World_OverlapShape(world, &proxy, filter, Cb::Report, &cb);
 
 		return results;
 	}
@@ -187,7 +178,6 @@ namespace Bolt {
 		b2WorldId world = phys.m_WorldId;
 		float radians = Bolt::Radians<float>(degrees);
 
-		// Eckpunkte des OBB in Weltkoordinaten
 		Vec2 corners[4] = {
 			{ halfExtents.x,  halfExtents.y},
 			{-halfExtents.x,  halfExtents.y},

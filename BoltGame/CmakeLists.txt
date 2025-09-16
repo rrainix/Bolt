@@ -11,22 +11,20 @@ file(GLOB_RECURSE GAME_SOURCES
 
 add_executable(BoltGame ${GAME_SOURCES})
 
-# Link gegen Core (Vendor-Includes kommen transitiv)
 target_link_libraries(BoltGame PRIVATE BoltCore)
 
-# VS-Debugger Working Directory = EXE-Ordner
 set_property(TARGET BoltGame PROPERTY
   VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:BoltGame>"
 )
 
-# Feste Ausgabepfade in Binaries/
+
 foreach(cfg Debug Release RelWithDebInfo MinSizeRel)
   set_target_properties(BoltGame PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_${cfg} "${CMAKE_SOURCE_DIR}/Binaries/${cfg}"
   )
 endforeach()
 
-# Assets kopieren
+
 add_custom_command(TARGET BoltGame POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory
     "$<TARGET_FILE_DIR:BoltGame>/Assets"

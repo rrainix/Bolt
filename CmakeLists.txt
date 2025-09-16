@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.23)
 
-# ---- Solution/Project-Name (ändert .sln auf "Bolt") --------------------------
+
 project(Bolt LANGUAGES CXX)
 
-# ---- Sprache & globale Flags -------------------------------------------------
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-# ---- MSVC: moderner Präprozessor & Runtime immer /MD (auch Debug) -----------
 if (MSVC)
   add_compile_options(/Zc:__cplusplus /Zc:preprocessor)
   cmake_policy(SET CMP0091 NEW)
@@ -16,7 +15,7 @@ if (MSVC)
   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
 endif()
 
-# ---- bx/bgfx Debug-Defines je nach Konfiguration -----------------------------
+
 add_compile_definitions(
   $<$<CONFIG:Debug>:BX_CONFIG_DEBUG=1>
   $<$<NOT:$<CONFIG:Debug>>:BX_CONFIG_DEBUG=0>
@@ -24,16 +23,14 @@ add_compile_definitions(
   $<$<NOT:$<CONFIG:Debug>>:BGFX_CONFIG_DEBUG=0>
 )
 
-# ---- Unterprojekte -----------------------------------------------------------
+
 add_subdirectory("BoltCore")
 add_subdirectory("BoltGame")
 
-# ---- Visual Studio: BoltGame als Startprojekt -------------------------------
-# (Wirkt auf das aktuelle Quell-Verzeichnis / die Solution)
+
 set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
              PROPERTY VS_STARTUP_PROJECT BoltGame)
 
-# ---- Kosmetik: CMake-Hilfstargets in eigenen Ordner --------------------------
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 foreach(t ALL_BUILD ZERO_CHECK INSTALL RUN_TESTS)
   if (TARGET ${t})

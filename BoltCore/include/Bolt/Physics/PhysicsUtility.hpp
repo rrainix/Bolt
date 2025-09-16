@@ -11,9 +11,9 @@ struct b2ShapeId;
 namespace Bolt {
 	class PhysicsUtility {
 	public:
-		static EntityHandle GetNativeEntityFromCollider(const Collider2D& collider);
-		static EntityHandle GetNativeEntityFromRigidbody(const Rigidbody2D& rb);
-		static EntityHandle GetNativeEntityFromBodyId(b2BodyId bodyId);
-		static EntityHandle GetNativeEntityFromShapeId(b2ShapeId shapeId);
+		static EntityHandle GetEntityHandleFromCollider(const Collider2D& collider);
+		static EntityHandle GetEntityHandleFromRigidbody(const Rigidbody2D& rb);
+		static EntityHandle GetEntityHandleFromBodyId(b2BodyId bodyId);
+		static EntityHandle GetEntityHandleFromShapeID(b2ShapeId shapeId);
 	};
 }

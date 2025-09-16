@@ -16,7 +16,7 @@ namespace Bolt {
         int  GetWidth()  const noexcept { return m_Width; }
         int  GetHeight() const noexcept { return m_Height; }
 
-        // Passe den Typ an deinen Vektor-Typ an (Vec2Int, Vec2i, IVec2 o.ä.)
+
         Vec2Int GetSize() const noexcept { return Vec2Int{ m_Width, m_Height }; }
 
         float GetAspect() const noexcept { return m_Aspect; }

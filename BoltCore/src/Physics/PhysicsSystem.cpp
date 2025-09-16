@@ -14,18 +14,8 @@ namespace Bolt {
 	void PhysicsSystem::FixedUpdate(float dt) {
 		if (!s_IsEnabled)return;
 
-		//for (auto& scene : SceneManager::s_LoadedScenes)
-		//{
-		//	for (auto [ent, rb, tf] : scene->GetRegistry().view<Rigidbody2D, Transform2D>().each()) {
-		//		rb.SetTransform(tf);
-		//	}
-		//	for (auto [ent, boxCollider, tf] : scene->GetRegistry().view<BoxCollider2D, Transform2D>().each()) {
-		//		boxCollider.SetTransform(tf);
-		//	}
-		//}
-
 		s_MainWorld.Step(dt);
-		s_MainWorld.GetDispatcher().process(s_MainWorld.GetWorldID());
+		s_MainWorld.GetDispatcher().Process(s_MainWorld.GetWorldID());
 
 		for (auto& scene : SceneManager::s_LoadedScenes)
 		{

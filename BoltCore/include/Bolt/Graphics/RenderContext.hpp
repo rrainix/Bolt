@@ -12,24 +12,18 @@ namespace Bolt {
         RenderContext() = default;
         ~RenderContext() = default;
 
-        // Initialisiert bgfx (PlatformData wird normalerweise vom Windowing-System bereitgestellt).
-        // Gibt true zurück, wenn erfolgreich.
         bool Init(const bgfx::PlatformData& pd, int width, int height, uint32_t resetFlags = BGFX_RESET_VSYNC | BGFX_RESET_MSAA_X4);
 
-        // Resize / Reset (ruft bgfx::reset auf)
-        void Reset(int width, int height);
 
-        // Clean shutdown
+        void Reset(int width, int height);
         void Shutdown();
 
-        // View helpers
         uint16_t GetViewId(ViewID viewId) const noexcept { return static_cast<uint16_t>(viewId); }
         void SetViewCamera(ViewID viewId, const float view[16], const float proj[16]) const;
         void SetViewClear(ViewID viewId, uint16_t clearFlags, uint32_t rgba, float depth = 1.0f, uint8_t stencil = 0) const;
         void TouchView(ViewID viewId) const noexcept { bgfx::touch(GetViewId(viewId)); }
         void SetViewRect(ViewID viewId, uint16_t x, uint16_t y, uint16_t width, uint16_t height) const;
 
-        // Accessors
         int Width() const noexcept { return m_width; }
         int Height() const noexcept { return m_height; }
         bool IsInitialized() const noexcept { return m_initialized; }

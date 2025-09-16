@@ -8,7 +8,6 @@
 #include <bgfx/bgfx.h>
 
 namespace Bolt {
-	// Static member definitions
 	bool GizmoRenderer::m_IsInitialized = false;
 	std::unique_ptr<Shader> GizmoRenderer::m_GizmoShader;
 	bgfx::VertexLayout GizmoRenderer::m_GizmoLayout;
@@ -19,7 +18,6 @@ namespace Bolt {
 	bool GizmoRenderer::Initialize() {
 		if (m_IsInitialized) return true;
 
-		// Setup gizmo vertex layout
 		m_GizmoLayout.begin()
 			.add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
 			.add(bgfx::Attrib::Color0, 4, bgfx::AttribType::Uint8, true)
@@ -35,11 +33,9 @@ namespace Bolt {
 			return false;
 		}
 
-		// Reserve space for vertices and indices
 		m_GizmoVertices.reserve(4096);
 		m_GizmoIndices.reserve(8192);
 
-		// Setup gizmo view (no clear, renders on top)
 		bgfx::setViewClear(m_GizmoViewId, BGFX_CLEAR_NONE);
 		bgfx::setViewRect(m_GizmoViewId, 0, 0, bgfx::BackbufferRatio::Equal);
 		bgfx::setViewMode(m_GizmoViewId, bgfx::ViewMode::Sequential);
@@ -61,14 +57,12 @@ namespace Bolt {
 	void GizmoRenderer::OnResize(int w, int h) {
 		if (!m_IsInitialized || w <= 0 || h <= 0) return;
 
-		// Update gizmo view viewport
 		bgfx::setViewRect(m_GizmoViewId, 0, 0, bgfx::BackbufferRatio::Equal);
 	}
 
 	void GizmoRenderer::BeginFrame(uint16_t viewId) {
 		if (!m_IsInitialized) return;
 
-		// Clear buffers for new frame
 		m_GizmoVertices.clear();
 		m_GizmoIndices.clear();
 
@@ -78,12 +72,10 @@ namespace Bolt {
 	void GizmoRenderer::Render() {
 		if (!m_IsInitialized || !Gizmos::s_IsEnabled) return;
 
-		// Process all boxes
 		for (const auto& box : Gizmos::s_Boxes) {
 			uint32_t color = box.Color.ABGR32();
 			uint16_t baseIndex = (uint16_t)m_GizmoVertices.size();
 
-			// Calculate rotated corners
 			Vec2 corners[4] = {
 				Vec2(-box.HalfExtents.x, -box.HalfExtents.y),
 				Vec2(box.HalfExtents.x, -box.HalfExtents.y),
@@ -91,14 +83,12 @@ namespace Bolt {
 				Vec2(-box.HalfExtents.x,  box.HalfExtents.y)
 			};
 
-			// Apply rotation and translation
 			for (int i = 0; i < 4; ++i) {
-				Vec2 rotated = Bolt::Rotated(corners[i],box.Radiant); //May wrong
+				Vec2 rotated = Bolt::Rotated(corners[i],box.Radiant);
 				Vec2 final = box.Center + rotated;
 				m_GizmoVertices.push_back({ final.x, final.y, 0.0f, color });
 			}
 
-			// Add line loop indices
 			m_GizmoIndices.push_back(baseIndex + 0);
 			m_GizmoIndices.push_back(baseIndex + 1);
 			m_GizmoIndices.push_back(baseIndex + 1);
@@ -109,7 +99,6 @@ namespace Bolt {
 			m_GizmoIndices.push_back(baseIndex + 0);
 		}
 
-		// Process all lines
 		for (const auto& line : Gizmos::s_Lines) {
 			uint32_t color =line.Color.ABGR32();
 			uint16_t baseIndex = (uint16_t)m_GizmoVertices.size();
@@ -121,12 +110,10 @@ namespace Bolt {
 			m_GizmoIndices.push_back(baseIndex + 1);
 		}
 
-		// Process all circles
 		for (const auto& circle : Gizmos::s_Circles) {
 			uint32_t color = circle.Color.ABGR32();
 			uint16_t baseIndex = (uint16_t)m_GizmoVertices.size();
 
-			// Generate circle vertices
 			float angleStep = 2.0f * Pi<float>() / circle.Segments;
 			for (int i = 0; i < circle.Segments; ++i) {
 				float angle = i * angleStep;
@@ -135,7 +122,6 @@ namespace Bolt {
 				m_GizmoVertices.push_back({ x, y, 0.0f, color });
 			}
 
-			// Add line loop indices
 			for (int i = 0; i < circle.Segments; ++i) {
 				m_GizmoIndices.push_back(baseIndex + i);
 				m_GizmoIndices.push_back(baseIndex + ((i + 1) % circle.Segments));
@@ -149,28 +135,22 @@ namespace Bolt {
 	void GizmoRenderer::FlushGizmos() {
 		if (!m_IsInitialized || m_GizmoVertices.empty() || !m_GizmoShader) return;
 
-		// Create transient buffers
 		bgfx::TransientVertexBuffer tvb;
 		bgfx::TransientIndexBuffer tib;
 
-		// Allocate buffers
 		bgfx::allocTransientVertexBuffer(&tvb, (uint32_t)m_GizmoVertices.size(), m_GizmoLayout);
 		bgfx::allocTransientIndexBuffer(&tib, (uint32_t)m_GizmoIndices.size());
 
-		// Copy data
 		bx::memCopy(tvb.data, m_GizmoVertices.data(), m_GizmoVertices.size() * sizeof(PosColorVertex));
 		bx::memCopy(tib.data, m_GizmoIndices.data(), m_GizmoIndices.size() * sizeof(uint16_t));
 
-		// Set identity transform
 		float identityMtx[16];
 		bx::mtxIdentity(identityMtx);
 		bgfx::setTransform(identityMtx);
 
-		// Set buffers
 		bgfx::setVertexBuffer(0, &tvb);
 		bgfx::setIndexBuffer(&tib);
 
-		// State for line rendering (no depth test, renders on top)
 		const uint64_t state =
 			BGFX_STATE_WRITE_RGB |
 			BGFX_STATE_WRITE_A |

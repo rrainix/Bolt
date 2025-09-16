@@ -4,7 +4,6 @@
 #include "Bolt/Physics/Box2DWorld.hpp"
 #include "Bolt/Scene/Scene.hpp"
 #include "Bolt/Scene/SceneManager.hpp"
-//#include "bolt/components/BoxCollider2D.hpp"
 
 namespace Bolt {
 	void Rigidbody2D::SetType(BodyType bodyType) {

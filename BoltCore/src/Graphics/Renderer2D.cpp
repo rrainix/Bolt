@@ -27,36 +27,29 @@ namespace Bolt {
 	{
 		if (m_IsInitialized) return true;
 
-		// 1) bgfx / RenderContext
 		if (!m_RenderContext.Init(pd, w, h, resetFlags)) {
 			std::cerr << "[Renderer2D] RenderContext init failed\n";
 			return false;
 		}
 
-		// 2) Shared resources
 		if (!m_RenderResources.Init()) {
 			std::cerr << "[Renderer2D] RenderResources init failed\n";
 			return false;
 		}
 
-		// 3) Quad mesh (PosTex)
 		if (!m_QuadMesh.Init(m_RenderResources.GetPosTexLayout())) {
 			std::cerr << "[Renderer2D] QuadMesh init failed\n";
 			return false;
 		}
 
-		// 4) Instance-Layout (MUSS vor Shader passieren)
 		InitInstanceLayout();
 
-		// 5) Subsysteme
 		GizmoRenderer::Initialize();
 		TextureManager::Initialize();
 
-		// 6) View setup
 		m_RenderContext.SetViewClear(ViewID::Main, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, Color{ .3f, .3f, .3f, 1.0f }.RGBA32());
 		m_RenderContext.SetViewRect(ViewID::Main, 0, 0, static_cast<uint16_t>(w), static_cast<uint16_t>(h));
 
-		// 7) Shaders
 		m_DefaultShader = std::make_unique<Shader>(
 			"Assets/Shaders_2/compiled_shaders/vs_simple2dDx.bin",
 			"Assets/Shaders_2/compiled_shaders/fs_simple2dDx.bin"
@@ -75,23 +68,20 @@ namespace Bolt {
 			Logger::Message("Instanced shader loaded successfully");
 		}
 
-		// 8) Default-Texture
 		m_Texture = std::make_unique<Texture2D>("Assets/Textures/liltracy_2.png", Filter::Point, Wrap::Repeat);
 		if (!m_Texture->IsValid()) {
 			std::cerr << "[Renderer2D] default texture invalid\n";
 		}
 
-		// CPU-Buffers
 		m_VertexBufferCPU.reserve(1024 * 4);
 		m_IndexBufferCPU.reserve(1024 * 6);
 
-		// 9) Instance-VB initialisieren (kleine Startkapazität, wächst bei Bedarf)
 		m_InstanceUsed = 0;
 		m_InstanceCap = 0;
 		if (bgfx::isValid(m_InstanceVB))
 			bgfx::destroy(m_InstanceVB);
-		EnsureInstanceCapacity(4096);                 // initial ~4k Instanzen
-		m_InstanceScratch.reserve(65536);             // Scratch-Puffer (vermeidet Reallocs)
+		EnsureInstanceCapacity(4096);                
+		m_InstanceScratch.reserve(65536);
 
 		m_IsInitialized = true;
 		return true;
@@ -108,7 +98,6 @@ namespace Bolt {
 		GizmoRenderer::OnResize(w, h);
 	}
 
-	//			Logger::Warning("There is no camera rendering");
 	void Renderer2D::BeginFrame(uint16_t viewId) {
 		if (!m_IsInitialized || Camera2D::Main() == nullptr) return;
 
@@ -117,11 +106,10 @@ namespace Bolt {
 		GizmoRenderer::BeginFrame();
 	}
 
-	// Wird nie genutzt da es imperformant is (je DrawCall ein Submit) ignoriere diese Funktion
+
 	bool Renderer2D::DrawQuad(uint16_t viewId, const Transform2D& tr, const SpriteRenderer& sp) {
 		if (!m_IsInitialized) return false;
 
-		// Frustum / AABB culling
 		if (!AABB::Intersects(AABB::FromTransform(tr), Camera2D::Main()->GetViewportAABB())) return false;
 
 		float mtx[16];
@@ -193,11 +181,10 @@ namespace Bolt {
 		if (bgfx::isValid(m_InstanceVB))
 			bgfx::destroy(m_InstanceVB);
 
-		// Initialer Inhalt egal; es wird per update() gefüllt
 		const bgfx::Memory* mem = bgfx::alloc(newCap * sizeof(InstanceData32));
 		std::memset(mem->data, 0, mem->size);
 
-		m_InstanceVB = bgfx::createDynamicVertexBuffer(mem, m_InstanceLayout32 /*, BGFX_BUFFER_ALLOW_RESIZE*/);
+		m_InstanceVB = bgfx::createDynamicVertexBuffer(mem, m_InstanceLayout32);
 		m_InstanceCap = newCap;
 		m_InstanceUsed = 0;
 	}
@@ -217,8 +204,8 @@ namespace Bolt {
 	void Renderer2D::InitInstanceLayout()
 	{
 		m_InstanceLayout32.begin()
-			.add(bgfx::Attrib::TexCoord7, 4, bgfx::AttribType::Float) // i_data0
-			.add(bgfx::Attrib::TexCoord6, 4, bgfx::AttribType::Float) // i_data1
+			.add(bgfx::Attrib::TexCoord7, 4, bgfx::AttribType::Float)
+			.add(bgfx::Attrib::TexCoord6, 4, bgfx::AttribType::Float)
 			.end();
 	}
 
@@ -229,7 +216,7 @@ namespace Bolt {
 
 		Logger::Message("[Renderer2D] Rebuilding static batches...");
 
-		// alte VB zerstören
+
 		for (auto& [k, b] : m_StaticBatches) {
 			if (bgfx::isValid(b.instVB)) bgfx::destroy(b.instVB);
 		}
@@ -239,7 +226,7 @@ namespace Bolt {
 		auto& registry = scene.GetRegistry();
 		auto sprites = registry.view<Transform2D, SpriteRenderer, StaticTag>();
 
-		// sammeln (nur Static=true)
+
 		std::unordered_map<StaticBatchKey, std::vector<InstanceData32>, StaticBatchKeyHash> buckets;
 
 		for (auto [e, tr, sr] : sprites.each())
@@ -255,7 +242,6 @@ namespace Bolt {
 			vec.emplace_back(CreateInstanceData32(tr, ColorOrderLayer{ sr.Color, sr.SortingOrder, sr.SortingLayer }));
 		}
 
-		// VB pro Bucket anlegen + einmalig füllen
 		for (auto& [key, data] : buckets)
 		{
 			if (data.empty()) continue;
@@ -270,7 +256,6 @@ namespace Bolt {
 			batch.instVB = vb;
 			batch.count = count;
 
-			// grobe AABB (nur Translation)
 			Vec2 mn{ FLT_MAX,  FLT_MAX }, mx{ -FLT_MAX, -FLT_MAX };
 			for (const auto& d : data) {
 				mn.x = std::min(mn.x, d.Tx); mn.y = std::min(mn.y, d.Ty);
@@ -281,7 +266,7 @@ namespace Bolt {
 			m_StaticBatches.emplace(key, batch);
 		}
 
-		// sortierte Liste für Merge (Layer/Order → Sampler/Texture)
+
 		m_StaticSorted.reserve(m_StaticBatches.size());
 		for (auto& [k, b] : m_StaticBatches) m_StaticSorted.push_back(&b);
 		std::sort(m_StaticSorted.begin(), m_StaticSorted.end(),
@@ -299,17 +284,16 @@ namespace Bolt {
 		const float dt = Time::GetDeltaTime();
 		auto& registry = scene.GetRegistry();
 
-		// View transform
+		
 		bgfx::setViewTransform((uint16_t)ViewID::Main,
 			mainCamera.GetViewMatrix(),
 			mainCamera.GetProjectionMatrix());
 
 		const AABB camAABB = mainCamera.GetViewportAABB();
 
-		// --- Static Batches bei Bedarf neu aufbauen ---
 		RebuildStaticBatches(scene);
 
-		// --- Dynamic sammeln ---
+
 		auto spritesView = registry.view<Transform2D, SpriteRenderer>(entt::exclude<DisabledTag, StaticTag>);
 		auto particleView = registry.view<Transform2D, ParticleSystem2D>(entt::exclude<DisabledTag>);
 
@@ -318,14 +302,12 @@ namespace Bolt {
 
 		const size_t batchCount = m_StaticBatches.size();
 
-		// Anzahl der Static-Sprites (Summe aller Instanzen):
+
 		size_t staticSpriteCount = 0;
 		for (const auto& [key, batch] : m_StaticBatches)
 			staticSpriteCount += batch.count;
 
 
-
-		// Sprites (nur nicht-statische)
 		for (auto [e, tr, sr] : spritesView.each())
 		{
 			if (!AABB::Intersects(AABB::FromTransform(tr), camAABB))
@@ -346,7 +328,6 @@ namespace Bolt {
 				tr, ColorOrderLayer{ sr.Color, sr.SortingOrder, sr.SortingLayer });
 		}
 
-		// Partikel (immer dynamisch)
 		for (auto [e, tr, ps] : particleView.each())
 		{
 			ps.Update(dt);
@@ -394,11 +375,10 @@ namespace Bolt {
 		Logger::Message("static batches: " + std::to_string(batchCount)
 			+ ", static sprites: " + std::to_string(staticSpriteCount) + " proccessed sprites: " + std::to_string(spritesView.size_hint()) + " rendered sprites: " + std::to_string(s_Items.size()));
 
-		// Wenn weder statisch noch dynamisch was zu tun ist
+
 		if (m_StaticSorted.empty() && s_Items.empty())
 			return;
 
-		// Dynamic sortieren: Layer -> Order -> SamplerFlags -> Texture
 		std::stable_sort(s_Items.begin(), s_Items.end(),
 			[](const Item& a, const Item& b)
 			{
@@ -408,14 +388,13 @@ namespace Bolt {
 				return a.TextureHandle.idx < b.TextureHandle.idx;
 			});
 
-		// Render-State (MSAA optional)
-		const uint64_t state = BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_BLEND_ALPHA /*| BGFX_STATE_MSAA*/;
+		const uint64_t state = BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_BLEND_ALPHA;
 
-		// Dyn. Instance-Buffer vorbereiten für dynamische Items
+
 		m_InstanceUsed = 0;
 		EnsureInstanceCapacity((uint32_t)s_Items.size());
 
-		// Merge Static + Dynamic nach (layer, order, sampler, texture)
+
 		auto keyOfItem = [](const Item& it)
 			{
 				return std::tuple<uint8_t, int16_t, uint32_t, uint16_t>(
@@ -427,8 +406,8 @@ namespace Bolt {
 					b->key.layer, b->key.order, b->key.sampler, b->key.tex.idx);
 			};
 
-		size_t s = 0;             // cursor static
-		size_t d = 0;             // cursor dynamic
+		size_t s = 0;
+		size_t d = 0;
 		constexpr uint32_t kMaxPerSubmit = 1'000'000u;
 
 		while (s < m_StaticSorted.size() || d < s_Items.size())
@@ -443,7 +422,6 @@ namespace Bolt {
 			if (takeStatic)
 			{
 				const StaticBatch* sb = m_StaticSorted[s++];
-				// Kamera-Culling für den gesamten statischen Batch
 				if (!AABB::Intersects(sb->aabb, camAABB))
 					continue;
 
@@ -456,7 +434,6 @@ namespace Bolt {
 			}
 			else
 			{
-				// dynamische Range mit gleichem Key bündeln
 				const auto layer = s_Items[d].SortingLayer;
 				const auto order = s_Items[d].SortingOrder;
 				const auto flags = s_Items[d].SamplerFlags;
@@ -472,7 +449,6 @@ namespace Bolt {
 				}
 				const size_t count = d - start;
 
-				// in großen Batches hochladen
 				size_t off = 0;
 				while (off < count)
 				{
@@ -516,14 +492,12 @@ namespace Bolt {
 	{
 		if (!m_IsInitialized) return;
 
-		// Static-Buffers zerstören
 		for (auto& [k, b] : m_StaticBatches) {
 			if (bgfx::isValid(b.instVB)) bgfx::destroy(b.instVB);
 		}
 		m_StaticBatches.clear();
 		m_StaticSorted.clear();
 
-		// Dyn. Instance-VB
 		if (bgfx::isValid(m_InstanceVB))
 			bgfx::destroy(m_InstanceVB);
 		m_InstanceVB = BGFX_INVALID_HANDLE;

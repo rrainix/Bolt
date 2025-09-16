@@ -49,7 +49,7 @@ namespace Bolt {
 	private:
 		b2BodyId m_BodyId;
 
-		//friend class CircleCollider;
+
 		friend class BoxCollider2D;
 		friend class Collider2D;
 		friend class PhysicsSystem;

@@ -15,7 +15,7 @@ namespace Bolt {
 		Window(int width, int height, const std::string& title, WindowMode windowMode);
 		~Window();
 
-		// Verhindern von Kopieren der Instanz
+
 		Window(const Window&) = delete;
 		Window& operator=(const Window&) = delete;
 
@@ -48,18 +48,15 @@ namespace Bolt {
 		glm::ivec2 center() const;
 
 
-		// Callbacks
 		static void scrollCallback(GLFWwindow* window, double xOffset, double yOffset);
 		static void windowResizedCallback(GLFWwindow* window, int width, int height);
 
-		// Fensterdetails
 		static Window* s_activeWindow;
 
 		GLFWwindow* m_window = nullptr;
 		GLFWmonitor* m_monitor = nullptr;
 		const GLFWvidmode* k_mode = nullptr;
 
-		// Fenstergrößen
 		int m_width, m_height;
 		std::string m_title;
 		bool m_windowResized = false;

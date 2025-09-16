@@ -21,7 +21,7 @@ namespace Bolt {
 		b2World_Step(m_WorldId, dt, 5);
 	}
 
-	//Rigidbody
+
 	b2BodyId Box2DWorld::CreateBody(EntityHandle nativeEntity, Scene& scene, BodyType bodyType) {
 		Transform2D& tr = scene.GetComponent<Transform2D>(nativeEntity);
 

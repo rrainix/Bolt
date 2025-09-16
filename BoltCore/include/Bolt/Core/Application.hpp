@@ -29,6 +29,6 @@ namespace Bolt {
 		Renderer2D m_Renderer2D;
 		PhysicsSystem m_PhysicsSystem;
 
-		static float s_TargetFramerate;  // Default 60 FPS
+		static float s_TargetFramerate;
 	};
 }

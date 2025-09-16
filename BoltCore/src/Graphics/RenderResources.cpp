@@ -9,7 +9,6 @@ namespace Bolt {
             .end();
 
 
-        // Create PosColor layout (useful for gizmos / debug lines)
         m_PosColorLayout.begin()
             .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
             .add(bgfx::Attrib::Color0, 4, bgfx::AttribType::Uint8, true, false)
@@ -24,7 +23,7 @@ namespace Bolt {
             return false;
         }
 
-        // Create 1x1 white default texture (RGBA8)
+
         uint8_t white[] = { 0xFF, 0xFF, 0xFF, 0xFF };
         const bgfx::Memory* mem = bgfx::makeRef(white, sizeof(white));
         m_DefaultTexture = bgfx::createTexture2D(
