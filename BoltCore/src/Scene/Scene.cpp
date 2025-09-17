@@ -124,7 +124,7 @@ namespace Bolt {
 		// Get the body of the Collider and set it to Dynamic
 		if (HasAnyComponent<BoxCollider2D>(entity)) {
 			rb2D.m_BodyId = GetComponent<BoxCollider2D>(entity).m_BodyId;
-			rb2D.SetType(BodyType::Dynamic);
+			rb2D.SetBodyType(BodyType::Dynamic);
 		}
 		else {
 			rb2D.m_BodyId = PhysicsSystem::GetMainPhysicsWorld().CreateBody(entity, *this, BodyType::Dynamic);
@@ -137,7 +137,7 @@ namespace Bolt {
 		if (!rb2D.IsValid()) return;
 
 		if (HasAnyComponent<BoxCollider2D>(entity)) {
-			rb2D.SetType(BodyType::Static);
+			rb2D.SetBodyType(BodyType::Static);
 		}
 		else {
 			rb2D.Destroy();

@@ -46,7 +46,7 @@ namespace Bolt {
         UnloadAllScenes(false);
 
         SceneDefinition* definition = defIt->second.get();
-        auto newScene = definition->instantiate();
+        auto newScene = definition->Instantiate();
 
 
         for (const auto& callback : definition->m_loadCallbacks) {
@@ -70,7 +70,7 @@ namespace Bolt {
         }
 
         SceneDefinition* definition = defIt->second.get();
-        auto newScene = definition->instantiate();
+        auto newScene = definition->Instantiate();
 
 
         for (const auto& callback : definition->m_loadCallbacks) {

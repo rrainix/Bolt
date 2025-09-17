@@ -32,7 +32,7 @@ namespace Bolt {
 		AudioManager::Initialize();
 	}
 
-	float Application::s_TargetFramerate = 60.0f;
+	float Application::s_TargetFramerate = 144.0f;
 
 	void Application::Run() {
 		sapp_desc d{};

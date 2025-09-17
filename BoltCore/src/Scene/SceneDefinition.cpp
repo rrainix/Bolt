@@ -5,7 +5,7 @@
 
 
 namespace Bolt {
-	std::unique_ptr<Scene> SceneDefinition::instantiate() const {
+	std::unique_ptr<Scene> SceneDefinition::Instantiate() const {
 		auto scene = std::unique_ptr<Scene>(
 			new Scene(m_name, this, m_isPersistent)
 		);

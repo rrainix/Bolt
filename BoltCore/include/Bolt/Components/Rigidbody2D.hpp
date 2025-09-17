@@ -13,7 +13,7 @@ namespace Bolt {
 	public:
 		Rigidbody2D() = default;
 
-		void SetType(BodyType bodyType);
+		void SetBodyType(BodyType bodyType);
 
 		bool IsAwake() const;
 

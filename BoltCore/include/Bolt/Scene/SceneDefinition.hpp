@@ -9,11 +9,7 @@ namespace Bolt {
     class Scene;
     class ISystem;
 
-    /**
-     * SceneDefinition enthält die "Bauanleitung" für eine Scene.
-     * Sie speichert, welche Systems erstellt werden sollen und andere
-     * persistente Konfigurationen, aber keine Runtime-Daten.
-     */
+
     class SceneDefinition {
         friend class SceneManager;
 
@@ -22,16 +18,13 @@ namespace Bolt {
             : m_name(name) {
         }
 
-        /**
-         * Fügt ein System zur Scene-Definition hinzu.
-         * Die Factory-Funktion wird gespeichert und beim Laden der Scene verwendet.
-         */
+
         template<typename TSystem, typename... Args>
-        SceneDefinition& addSystem(Args&&... args) {
+        SceneDefinition& AddSystem(Args&&... args) {
             static_assert(std::is_base_of<ISystem, TSystem>::value,
                 "TSystem must derive from ISystem");
 
-            // Speichere Factory-Funktion mit den Arguments
+
             m_systemFactories.emplace_back(
                 [capturedArgs = std::tuple<Args...>(std::forward<Args>(args)...)]() mutable {
                     return std::apply(
@@ -43,50 +36,37 @@ namespace Bolt {
                 }
             );
 
-            // Speichere Typ-Info für spätere Queries
+
             m_systemTypes.push_back(std::type_index(typeid(TSystem)));
 
             return *this;
         }
 
-        /**
-         * Setzt eine Callback-Funktion, die beim Initialisieren der Scene aufgerufen wird.
-         * Nützlich für Scene-spezifische Setups wie Kamera-Position, Skybox, etc.
-         */
-        SceneDefinition& onInitialize(std::function<void(Scene&)> callback) {
+
+        SceneDefinition& OnInitialize(std::function<void(Scene&)> callback) {
             m_initializeCallbacks.push_back(callback);
             return *this;
         }
 
-        /**
-         * Setzt eine Callback-Funktion, die beim Laden der Scene aufgerufen wird.
-         * Wird nach der Initialisierung aber vor Start der Systems aufgerufen.
-         */
-        SceneDefinition& onLoad(std::function<void(Scene&)> callback) {
+
+        SceneDefinition& OnLoad(std::function<void(Scene&)> callback) {
             m_loadCallbacks.push_back(callback);
             return *this;
         }
 
-        /**
-         * Setzt eine Callback-Funktion, die beim Entladen der Scene aufgerufen wird.
-         */
-        SceneDefinition& onUnload(std::function<void(Scene&)> callback) {
+        SceneDefinition& OnUnload(std::function<void(Scene&)> callback) {
             m_unloadCallbacks.push_back(callback);
             return *this;
         }
 
-        /**
-         * Markiert diese Scene als Startup-Scene (wird automatisch beim Start geladen)
-         */
-        SceneDefinition& setAsStartupScene() {
+
+        SceneDefinition& SetAsStartupScene() {
             m_isStartupScene = true;
             return *this;
         }
 
-        /**
-         * Setzt Scene-spezifische Eigenschaften
-         */
-        SceneDefinition& setPersistent(bool persistent) {
+
+        SceneDefinition& SetPersistent(bool persistent) {
             m_isPersistent = persistent;
             return *this;
         }
@@ -107,11 +87,9 @@ namespace Bolt {
         std::vector<std::function<void(Scene&)>> m_unloadCallbacks;
 
         bool m_isStartupScene = false;
-        bool m_isPersistent = false;  // Bleibt geladen bei Scene-Wechsel
+        bool m_isPersistent = false;
 
-        /**
-         * Erstellt eine neue Scene-Instanz basierend auf dieser Definition
-         */
-        std::unique_ptr<Scene> instantiate() const;
+
+        std::unique_ptr<Scene> Instantiate() const;
     };
 }

@@ -83,7 +83,6 @@ namespace Bolt {
 	public:
 		bool Initialize(const bgfx::PlatformData& pd, int w, int h, uint32_t resetFlags = BGFX_RESET_VSYNC | BGFX_RESET_MSAA_X4);
 		void OnResize(int w, int h);
-		bool DrawQuad(uint16_t viewId, const Transform2D& tr, const SpriteRenderer& sp);
 		void RenderScenes();
 		void RenderScene(Scene& scene, Camera2D& mainCamera);
 		void BeginFrame(uint16_t viewId = 0);
@@ -120,7 +119,7 @@ namespace Bolt {
 		std::vector<uint16_t> m_IndexBufferCPU;
 		bgfx::TextureHandle m_CurrentTexture = BGFX_INVALID_HANDLE;
 
-		std::unique_ptr<Shader> m_DefaultShader;
+
 		std::unique_ptr<Shader> m_InstancedShader;
 		std::unique_ptr<Texture2D> m_Texture;
 

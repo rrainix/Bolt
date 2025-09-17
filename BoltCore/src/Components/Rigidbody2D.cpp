@@ -6,7 +6,7 @@
 #include "Bolt/Scene/SceneManager.hpp"
 
 namespace Bolt {
-	void Rigidbody2D::SetType(BodyType bodyType) {
+	void Rigidbody2D::SetBodyType(BodyType bodyType) {
 		switch (bodyType) {
 		case BodyType::Static:
 			b2Body_SetType(m_BodyId, b2_staticBody);

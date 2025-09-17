@@ -13,7 +13,12 @@ namespace Bolt {
 
 	private:
 		void CreateCamera(Scene& scene);
+		void CameraController(Scene& scene);
 		void CreateEntity(Scene& scene, Vec2 position);
+		Entity CreatePhysicsEntity(Scene& scene, Vec2 position, BodyType body = BodyType::Dynamic);
+		void CreateParticleSystem(Scene& scene, Vec2 position);
+
+		Vec2 startCamMousePosition;
 
 		TextureHandle BlockTexture;
 		TextureHandle SquareTexture;

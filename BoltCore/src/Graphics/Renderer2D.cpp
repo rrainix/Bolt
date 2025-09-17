@@ -50,11 +50,6 @@ namespace Bolt {
 		m_RenderContext.SetViewClear(ViewID::Main, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, Color{ .3f, .3f, .3f, 1.0f }.RGBA32());
 		m_RenderContext.SetViewRect(ViewID::Main, 0, 0, static_cast<uint16_t>(w), static_cast<uint16_t>(h));
 
-		m_DefaultShader = std::make_unique<Shader>(
-			"Assets/Shaders_2/compiled_shaders/vs_simple2dDx.bin",
-			"Assets/Shaders_2/compiled_shaders/fs_simple2dDx.bin"
-		);
-
 		m_InstancedShader = std::make_unique<Shader>(
 			"Assets/Shaders_4/shaders/dx11/vs_instanced.bin",
 			"Assets/Shaders_4/shaders/dx11/fs_instanced.bin"
@@ -104,40 +99,6 @@ namespace Bolt {
 		m_RenderContext.TouchView(ViewID::Main);
 		Camera2D::Main()->ApplyToView(viewId);
 		GizmoRenderer::BeginFrame();
-	}
-
-
-	bool Renderer2D::DrawQuad(uint16_t viewId, const Transform2D& tr, const SpriteRenderer& sp) {
-		if (!m_IsInitialized) return false;
-
-		if (!AABB::Intersects(AABB::FromTransform(tr), Camera2D::Main()->GetViewportAABB())) return false;
-
-		float mtx[16];
-		tr.GetModelMatrix(mtx);
-		bgfx::setTransform(mtx);
-
-		bgfx::setVertexBuffer(0, m_QuadMesh.VB());
-		bgfx::setIndexBuffer(m_QuadMesh.IB());
-
-		const uint64_t state =
-			BGFX_STATE_WRITE_RGB |
-			BGFX_STATE_WRITE_A |
-			BGFX_STATE_MSAA |
-			BGFX_STATE_BLEND_ALPHA;
-		bgfx::setState(state);
-
-		Texture2D& tex = TextureManager::GetTexture(sp.Sprite);
-		if (!bgfx::isValid(tex.Handle())) {
-			return false;
-		}
-
-		bgfx::setTexture(0, m_RenderResources.GetSamplerUniform(), tex.Handle());
-
-		if (m_DefaultShader) {
-			m_DefaultShader->Submit(viewId);
-		}
-
-		return true;
 	}
 
 	void Renderer2D::RenderScenes() {
@@ -507,7 +468,6 @@ namespace Bolt {
 		TextureManager::Shutdown();
 		GizmoRenderer::Shutdown();
 
-		if (m_DefaultShader)   m_DefaultShader.reset();
 		if (m_InstancedShader) m_InstancedShader.reset();
 		if (m_Texture)         m_Texture.reset();
 
