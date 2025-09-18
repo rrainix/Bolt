@@ -9,9 +9,15 @@ Bolt is a 2D gameengine
 </p>
 
 ## External
-- Bgfx - Rendering Library
-- Bimg - Graphics Image Library
-- Bx - Graphics Math Library
-- 
+- Bgfx - Multiplatform Rendering Library
+- Bimg - Multiplatform Graphics Image Library
+- Bx - Basic Graphics Math Library
+- Box2D - 2D Physics Library / Engine
+- Cereal - Serialization Library
+- Entt - ECS Library
+- GLM - Graphics Math Library
+- Miniaudio - Multiplatform Audio Library
+- Sokol - Multiplatform Window Library
+- Spdlog - Logging Library
 
 
