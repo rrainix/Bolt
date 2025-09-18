@@ -1,5 +1,5 @@
 # Bolt⚡
-Bolt is a 2D gameengine library without an editor.
+Bolt is a 2D code only library.
 
 ## 📸 Screenshots
 <p align="center">
@@ -18,6 +18,7 @@ Bolt is a 2D gameengine library without an editor.
 - Miniaudio - Multiplatform Audio Library
 - Sokol - Multiplatform Window Library
 - Spdlog - Logging Library
+
 
 
 
